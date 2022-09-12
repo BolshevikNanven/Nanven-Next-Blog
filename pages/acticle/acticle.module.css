@@ -1,0 +1,28 @@
+.acticleHead{
+    font-family: "Segoe UI", SegoeUI, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    width: 100%;
+}
+.title{
+    font-size: 34px;
+    line-height: 40px;
+    text-align: left;
+    overflow-wrap: break-word;
+    font-weight: 100;
+    margin-bottom: 4px;
+}
+.date{
+    font-size: 15px;
+    line-height: 20px;
+    color: #666;
+    padding-left: 2px;
+    margin: 4px 0;
+}
+.acticleBody{
+    margin-top: 16px;
+}
+.hr{
+    height: 1px;
+    width: 100%;
+    background-color: #cccccc;
+    margin: 12px 0 8px 0;
+}

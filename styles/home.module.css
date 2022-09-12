@@ -1,0 +1,109 @@
+.card{
+    display: flex;
+    flex-direction: column;
+}
+.headDate{
+    float: left;
+}
+.pot{
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #bec0bf;
+    margin-left: 4px;
+    margin-bottom: 2px;
+    display: inline-block;
+}
+.date{
+    display: inline-block;
+    color: #8a8f8d;
+    padding-left: 14px;
+    margin: 0;
+    user-select: none;
+    font-size: 14px;
+    line-height: 22px;
+}
+.cardBodyBox{
+    position: relative;
+    padding: 4px 0 24px 18px;
+    border-left: 1px dashed rgba(155, 156, 155, 0.264);
+    margin: 8px 0 8px 6px;
+}
+.cardBodyBox:hover{
+    border-left: 1px solid rgba(145, 146, 145, 0.182);
+}
+.cardBodyBox:hover .spot{
+    transform: translateX(3px);
+}
+.cardBody{
+    display: flex;
+    flex-direction: column;
+}
+.title{
+    font-size: 16px;
+    font-weight: 500;
+    color: #262626;
+    display: block;
+    text-overflow: ellipsis;
+    text-decoration: none;
+}
+.title:hover{
+    color: #006ccb;
+    text-decoration: underline;
+}
+.description{
+    margin-top: 6px;
+    margin-bottom: 0;
+    font-size: 14px;
+    color: #585a5a;
+    display: -webkit-box;
+    max-height: 44px;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    line-height: 22px;
+}
+.headstart{
+    color: #bec0bf;
+    font-size: 12px;
+    padding-left: 24px;
+    position: relative;
+    margin-top: -8px;
+}
+.headstart::before{
+    content: " ";
+    height: 5px;
+    width: 5px;
+    background: #bec0bf;
+    border-radius: 50%;
+    margin-top: -4px;
+    margin-left: 3px;
+    position: absolute;
+    top: calc(50% + 2px);
+    left: 1px;
+}
+.botbar{
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 14px;
+    color: #8a8f8d;
+    line-height: 20px;
+    margin-top: 12px;
+}
+.botbar a{
+    text-decoration: none;
+    font-size: 14px;
+    color: #8a8f8d;
+    line-height: 20px;
+    margin-left: 8px;
+    padding-bottom: 2px;
+}
+.botbar a:hover{
+    color: #7d8280;
+}
+.spot{
+    transition: all 0.1s ease-in-out;
+}

@@ -1,0 +1,40 @@
+html,body,div,p{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #ffffff;
+}
+a{
+    text-decoration: none;
+}
+
+.base{
+    margin-top: 88px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    min-height: 100vh;
+}
+.main{
+    flex: 1;
+    margin: 8px auto 0 auto;
+    max-width: 900px;
+    padding: 16px;
+    position: relative;
+    min-height: 100vh;
+}
+
+
+.ActicleBody{
+    margin-top: 16px;
+}
+
+@media screen and (max-width: 640px){
+    .main{
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
