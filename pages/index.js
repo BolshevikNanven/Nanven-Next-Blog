@@ -19,7 +19,7 @@ export default function Home({allPostsData}) {
       </Head>
 
       {allPostsData.map(({id,title,description,date})=>(
-        <div className={style.card}>
+        <div key={id} className={style.card}>
           <div className={style.headDate}>
             <span className={style.pot}></span>
             <p className={style.date}>{date}</p>
