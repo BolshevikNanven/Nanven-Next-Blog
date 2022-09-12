@@ -19,7 +19,7 @@ export default function Friend(){
         <div className={style.friendContainer}>
             {friends.map((link)=>{
                 return(
-                    <a key={link.name} className={style.cardBox} href={link.href} target='_blank'>
+                    <a key={link.name} className={style.cardBox} href={link.href} target='_blank' rel="noreferrer">
                         <img className={style.icon} src={link.icon =='' ? `${link.href}/favicon.ico` : link.icon} />
                         <span className={style.detail}>
                             <p className={style.name}>{link.name}</p>

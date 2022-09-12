@@ -32,20 +32,20 @@ const Menu =(props)=>{
                         </span>
                         <a className={style.menuListContent}>友情链接</a>
                     </div></Link>
-                    <a href='https://nanvendrive.icedeer.net/' target='_blank' className={style.menuList}>
+                    <a href='https://nanvendrive.icedeer.net/' rel="noreferrer" target='_blank' className={style.menuList}>
                         <span className={style.menuListIcon}>
                             <FontAwesomeIcon icon={['fas','folder-open']} size='xs' fixedWidth />
                         </span>
                         <span className={style.menuListContent}>文件站</span>
                     </a>
                     <div className={style.subheader}>与我联系</div>
-                    <a href='mailto:icedeerwanna@outlook.com' target='_blank' className={style.menuList}>
+                    <a href='mailto:icedeerwanna@outlook.com' rel="noreferrer" target='_blank' className={style.menuList}>
                         <span className={style.menuListIcon}>
                             <FontAwesomeIcon icon={['fas','envelope']} size='xs' fixedWidth />
                         </span>
                         <span className={style.menuListContent}>邮箱</span>
                     </a>
-                    <a href='https://github.com/BolshevikNanven/' target='_blank' className={style.menuList}>
+                    <a href='https://github.com/BolshevikNanven/' rel="noreferrer" target='_blank' className={style.menuList}>
                         <span className={style.menuListIcon}>
                             <FontAwesomeIcon icon={['fab','github']} size='xs' fixedWidth />
                         </span>
