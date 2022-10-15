@@ -4,12 +4,12 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 
-
+import { getColorFromURL } from 'color-thief-node';
 
 
 const postsDirectory = path.join(process.cwd(), 'data/posts');
 
-export function getSortedPostsData() {
+export async function getSortedPostsData() {
   // Get file names under /posts
   const fileNames = fs.readdirSync(postsDirectory);
   const allPostsData = fileNames.map((fileName) => {
@@ -22,6 +22,15 @@ export function getSortedPostsData() {
 
     // Use gray-matter to parse the post metadata section
     const matterResult = matter(fileContents);
+
+    if(matterResult.data.image!==undefined){
+
+      getColorFromURL(matterResult.data.image).then((e)=>{
+        matterResult.data.rgb=e;
+
+      });
+
+    }
 
     // Combine the data with the id
     return {

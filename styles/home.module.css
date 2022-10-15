@@ -1,6 +1,64 @@
+.home{
+    position: relative;
+    overflow: hidden;
+}
+.home>div{
+    float: left;
+}
+.topBox{
+    width: 30%;
+    margin: 2px 7px 6px 7px;
+}
+.topBox:hover .topImg{
+    transform: scale(1.03);
+}
+.topBox:hover .topTitle{
+    text-decoration: underline;
+}
+.topCard{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 9px;
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.11);
+}
+.topDate{
+    position: absolute;
+    bottom: 0;
+    margin: 2px 12px;
+    font-size: 13px;
+    color: #262626;
+}
+.topTitle{
+    display: block;
+    margin: 0 12px;
+    font-size: 17px;
+    font-weight: 600;
+}
+.topImg{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    transition: transform .19s ease-in-out;
+}
+.topTextBox{
+    position: relative;
+    width: 100%;
+    height: 56px;
+}
+.mask{
+    position: absolute;
+    width: 100%;
+    height: 56px;
+    left: 0;
+    bottom: 100%;
+}
 .card{
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 .headDate{
     float: left;
@@ -70,6 +128,7 @@
     padding-left: 24px;
     position: relative;
     margin-top: -8px;
+    width: 100%;
 }
 .headstart::before{
     content: " ";
@@ -106,4 +165,10 @@
 }
 .spot{
     transition: all 0.1s ease-in-out;
+}
+
+@media screen and (max-width: 840px){
+    .topBox{
+        width: 45%;
+    }
 }

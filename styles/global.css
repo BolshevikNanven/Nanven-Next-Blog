@@ -21,12 +21,18 @@ a{
 .main{
     flex: 1;
     margin: 8px auto 0 auto;
-    max-width: 900px;
+    max-width: 940px;
     padding: 16px;
     position: relative;
     min-height: 100vh;
 }
 
+.lazyload-wrapper{
+    display: flex;
+}
+.lazyload-wrapper>img{
+    flex: 1;
+}
 
 .ActicleBody{
     margin-top: 16px;
