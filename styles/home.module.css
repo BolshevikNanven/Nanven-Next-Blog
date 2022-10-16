@@ -38,7 +38,9 @@
     font-weight: 600;
 }
 .topImg{
-    width: 100%;
+    position: relative;
+    width: 100% ;
+    height: auto;
     padding: 0;
     margin: 0;
     transition: transform .19s ease-in-out;

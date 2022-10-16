@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import Image from 'next/image';
 
 import { getSortedPostsData } from '../lib/posts';
 
@@ -34,9 +35,9 @@ export default function Home({allPostsData}) {
           return(
             <div key={id} className={style.topBox}>
               <div className={style.topCard}>
-                <LazyLoad placeholder={<h2>正在加载中</h2>}>
-                  <img className={style.topImg} src={image} alt=''/>
-                </LazyLoad >
+                <div className={style.topImg} >
+                  <Image layout='fill' src={image}></Image>
+                </div>
                 <div style={{backgroundColor:rgbcolor}} className={style.topTextBox}>
                   <a className={style.topTitle}>{title}</a>
                   <div style={{backgroundImage:'linear-gradient(rgba(0,0,0,0),'+rgbcolor+')'}} className={style.mask}>
