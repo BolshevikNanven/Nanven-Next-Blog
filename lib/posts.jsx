@@ -5,11 +5,12 @@ import { remark } from 'remark';
 import html from 'remark-html';
 
 import { getColorFromURL } from 'color-thief-node';
+import probe from 'probe-image-size';
 
 
 const postsDirectory = path.join(process.cwd(), 'data/posts');
 
-export async function getSortedPostsData() {
+export function getSortedPostsData() {
   // Get file names under /posts
   const fileNames = fs.readdirSync(postsDirectory);
   const allPostsData = fileNames.map((fileName) => {
@@ -30,7 +31,12 @@ export async function getSortedPostsData() {
 
       });
 
-    }
+      probe(matterResult.data.image).then((e)=>{
+        matterResult.data.width=e.width;
+        matterResult.data.height=e.height;
+      })
+
+    }    
 
     // Combine the data with the id
     return {

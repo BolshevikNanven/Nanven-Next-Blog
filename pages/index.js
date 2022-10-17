@@ -1,15 +1,15 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import Image from 'next/image';
+
 
 import { getSortedPostsData } from '../lib/posts';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import LazyLoad from 'react-lazyload';
-
 
 import style from '../styles/home.module.css';
+import Img from "react-cool-img";
+
 
 
 
@@ -32,12 +32,11 @@ export default function Home({allPostsData}) {
             var rgbcolor='rgb('+rgb[0]+','+rgb[1]+','+rgb[2]+')';
           }
 
+
           return(
             <div key={id} className={style.topBox}>
               <div className={style.topCard}>
-                <div className={style.topImg} >
-                  <Image layout='fill' src={image}></Image>
-                </div>
+                <Img src={image} className={style.topImg} />
                 <div style={{backgroundColor:rgbcolor}} className={style.topTextBox}>
                   <a className={style.topTitle}>{title}</a>
                   <div style={{backgroundImage:'linear-gradient(rgba(0,0,0,0),'+rgbcolor+')'}} className={style.mask}>
@@ -85,8 +84,8 @@ export default function Home({allPostsData}) {
 }
 
 
-export async function getStaticProps() {
-  const allPostsData = await getSortedPostsData();
+export function getStaticProps() {
+  const allPostsData = getSortedPostsData();
   return {
     props: {
       allPostsData,

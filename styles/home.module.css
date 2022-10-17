@@ -36,6 +36,8 @@
     margin: 0 12px;
     font-size: 17px;
     font-weight: 600;
+    max-height: 56px;
+    text-overflow: ellipsis;
 }
 .topImg{
     position: relative;
@@ -172,5 +174,8 @@
 @media screen and (max-width: 840px){
     .topBox{
         width: 45%;
+    }
+    .topTitle{
+        font-size: 15px;
     }
 }
