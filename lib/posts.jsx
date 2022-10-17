@@ -5,15 +5,15 @@ import { remark } from 'remark';
 import html from 'remark-html';
 
 import { getColorFromURL } from 'color-thief-node';
-import probe from 'probe-image-size';
 
 
 const postsDirectory = path.join(process.cwd(), 'data/posts');
 
-export function getSortedPostsData() {
+export async function getSortedPostsData() {
   // Get file names under /posts
   const fileNames = fs.readdirSync(postsDirectory);
-  const allPostsData = fileNames.map((fileName) => {
+
+  const allPostsData =await Promise.all(fileNames.map(async (fileName) => {
     // Remove ".md" from file name to get id
     const id = fileName.replace(/\.md$/, '');
 
@@ -26,34 +26,32 @@ export function getSortedPostsData() {
 
     if(matterResult.data.image!==undefined){
 
-      getColorFromURL(matterResult.data.image).then((e)=>{
-        matterResult.data.rgb=e;
+      const rgb =await getColorFromURL(matterResult.data.image)
+      matterResult.data.rgb=rgb;
 
-      });
-
-      probe(matterResult.data.image).then((e)=>{
-        matterResult.data.width=e.width;
-        matterResult.data.height=e.height;
-      })
-
-    }    
-
+    }
+    
     // Combine the data with the id
     return {
       id,
       ...matterResult.data,
     };
-  });
+
+  }));
+
+ 
   // Sort posts by date
-  return allPostsData.sort(({ date: a }, { date: b }) => {
-    if (a < b) {
-      return 1;
-    } else if (a > b) {
-      return -1;
-    } else {
-      return 0;
-    }
-  });
+    return allPostsData.sort(({ date: a }, { date: b }) => {
+      if (a < b) {
+        return 1;
+      } else if (a > b) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+
+
 }
 
 
