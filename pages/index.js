@@ -3,7 +3,6 @@ import Link from 'next/link';
 
 
 import { getSortedPostsData } from '../lib/posts';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
@@ -32,10 +31,10 @@ export default function Home({allPostsData}) {
             var rgbcolor='rgb('+rgb[0]+','+rgb[1]+','+rgb[2]+')';
           }
 
-
           return(
             <div key={id} className={style.topBox}>
-              <div className={style.topCard}>
+              <Link href={`/acticle/${id}`} >
+              <a className={style.topCard}>
                 <Img src={image} className={style.topImg} />
                 <div style={{backgroundColor:rgbcolor}} className={style.topTextBox}>
                   <a className={style.topTitle}>{title}</a>
@@ -43,17 +42,14 @@ export default function Home({allPostsData}) {
                     <span className={style.topDate}>{date}</span>
                   </div>
                 </div>
-              </div>
+              </a>
+              </Link>
             </div>
-
           )
           
-          
-
         }else{
           
           return(
-
             <div key={id} className={style.card}>
               <div className={style.headDate}>
                 <span className={style.pot}></span>
@@ -70,7 +66,6 @@ export default function Home({allPostsData}) {
                 </div>
               </div>
             </div>
-
           )
 
         }
