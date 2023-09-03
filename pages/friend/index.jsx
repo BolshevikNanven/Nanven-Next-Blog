@@ -2,8 +2,8 @@ import Head from 'next/head';
 import Image from 'next/image'
 
 
-import friends from '../data/friendsdata'
-import style from '../styles/friend.module.css'
+import friends from '../../data/friendsdata'
+import style from './index.module.css'
 
 
 export default function Friend(){

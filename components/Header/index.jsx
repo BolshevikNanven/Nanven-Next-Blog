@@ -27,7 +27,7 @@ const Header=(props)=>{
                 </button>
                 <div className={logodarkstate}></div>
                 <div className={style.headerSpace}></div>
-                <div className={`${style.headerBtn} ${Router.pathname=='/' ? `${style.none}`: ''}`}>
+                <div className={`${style.headerBtn} ${Router.pathname=='/home' ? `${style.none}`: ''}`}>
                     <Link href='/'>
                         <FontAwesomeIcon icon={['fas','reply']} size='xs' fixedWidth />
                     </Link>

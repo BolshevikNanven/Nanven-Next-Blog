@@ -1,7 +1,7 @@
 ---
 title: '记录Blog建站的第一篇文章'
 description: '网站新建还未完善,此文将会持续更新至完善'
-image: 'https://nanvendrive.icedeer.net/api?path=/IMG_0583.JPG&raw=true'
+image: 'https://tse3-mm.cn.bing.net/th/id/OIP-C.bVb769JBdzVZYuksxZ2Y-AHaEo?pid=ImgDet&rs=1'
 date: '2022-9-12'
 top: true
 ---

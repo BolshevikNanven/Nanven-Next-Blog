@@ -42,7 +42,7 @@
     text-decoration: none;
     user-select: none;
 }
-.menuList.active{
+:global(.active) .menuList{
     background-color: #f1f1f1 !important;
 }
 .menuList:hover{

@@ -20,7 +20,7 @@ a{
 }
 .main{
     flex: 1;
-    margin: 8px auto 0 auto;
+    margin: 0px auto 0 auto;
     max-width: 940px;
     padding: 16px;
     position: relative;

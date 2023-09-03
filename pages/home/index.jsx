@@ -2,17 +2,15 @@ import Head from 'next/head';
 import Link from 'next/link';
 
 
-import { getSortedPostsData } from '../lib/posts';
+import { getSortedPostsData } from '../../utils/posts';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
-import style from '../styles/home.module.css';
+import style from './index.module.css';
 import Img from "react-cool-img";
 
 
-
-
-export default function Home({allPostsData}) {
+export default function Home({ allPostsData }) {
 
   return (
     <div className={style.home}>
@@ -22,34 +20,34 @@ export default function Home({allPostsData}) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h2 style={{marginLeft:'10px',cursor:'default'}}>置顶</h2>
-      {allPostsData.map(({id,title,description,image,date,top,rgb})=>{
+      <h2 style={{ marginLeft: '10px', cursor: 'default' }}>置顶</h2>
+      {allPostsData.map(({ id, title, description, image, date, top, rgb }) => {
 
-        if(top){ 
-          
-          if(rgb!==undefined){
-            var rgbcolor='rgb('+rgb[0]+','+rgb[1]+','+rgb[2]+')';
+        if (top) {
+
+          if (rgb !== undefined) {
+            var rgbcolor = 'rgb(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ')';
           }
 
-          return(
+          return (
             <div key={id} className={style.topBox}>
               <Link href={`/acticle/${id}`} >
-              <a className={style.topCard}>
-                <Img src={image} className={style.topImg} />
-                <div style={{backgroundColor:rgbcolor}} className={style.topTextBox}>
-                  <a className={style.topTitle}>{title}</a>
-                  <div style={{backgroundImage:'linear-gradient(rgba(0,0,0,0),'+rgbcolor+')'}} className={style.mask}>
-                    <span className={style.topDate}>{date}</span>
+                <a className={style.topCard}>
+                  <Img src={image} className={style.topImg} />
+                  <div style={{ backgroundColor: rgbcolor }} className={style.topTextBox}>
+                    <a className={style.topTitle}>{title}</a>
+                    <div style={{ backgroundImage: 'linear-gradient(rgba(0,0,0,0),' + rgbcolor + ')' }} className={style.mask}>
+                      <span className={style.topDate}>{date}</span>
+                    </div>
                   </div>
-                </div>
-              </a>
+                </a>
               </Link>
             </div>
           )
-          
-        }else{
-          
-          return(
+
+        } else {
+
+          return (
             <div key={id} className={style.card}>
               <div className={style.headDate}>
                 <span className={style.pot}></span>
@@ -61,7 +59,7 @@ export default function Home({allPostsData}) {
                   <p className={style.description}>{description}</p>
                 </div>
                 <div className={style.botbar}>
-                  <span className={style.spot}><FontAwesomeIcon icon={['fas','chevron-circle-right']} size='xs' fixedWidth /></span>
+                  <span className={style.spot}><FontAwesomeIcon icon={['fas', 'chevron-circle-right']} size='xs' fixedWidth /></span>
                   <Link href={`/acticle/${id}`}><a>阅读全文</a></Link>
                 </div>
               </div>
@@ -80,7 +78,7 @@ export default function Home({allPostsData}) {
 
 
 export async function getStaticProps() {
-  const allPostsData =await getSortedPostsData();
+  const allPostsData = await getSortedPostsData();
   return {
     props: {
       allPostsData,
