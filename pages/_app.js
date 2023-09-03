@@ -13,17 +13,19 @@ import '../styles/sspai.css';
 
 function Myapp({ Component, pageProps }) {
 
-    const [is_MenuOpen,switch_MenuOpen]=useState(true);
-    const [is_Darkmode,switch_Darkmode]=useState(false);
+    const [is_MenuOpen, switch_MenuOpen] = useState(true);
+    const [is_Darkmode, switch_Darkmode] = useState(false);
 
     return (
         <>
-            <Header isMenuOpen={is_MenuOpen} switchMenuOpen={()=>{switch_MenuOpen(!is_MenuOpen)}}
-            isDarkmode={is_Darkmode} switchDarkmode={()=>{switch_Darkmode(!is_Darkmode)}}/>
+            <Header
+                isMenuOpen={is_MenuOpen} switchMenuOpen={() => { switch_MenuOpen(!is_MenuOpen) }}
+                isDarkmode={is_Darkmode} switchDarkmode={() => { switch_Darkmode(!is_Darkmode) }}
+            />
             <div className='base'>
-                <Menu isMenuOpen={is_MenuOpen} switchMenuOpen={()=>{switch_MenuOpen(!is_MenuOpen)}}/>
+                <Menu isMenuOpen={is_MenuOpen} switchMenuOpen={() => { switch_MenuOpen(!is_MenuOpen) }} />
                 <div className='main'>
-                    <Component {...pageProps}/>
+                    <Component {...pageProps} />
                 </div>
             </div>
         </>
