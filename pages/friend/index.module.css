@@ -3,6 +3,7 @@
     user-select: none;
 }
 .friendBox{
+    max-width: 920px;
     margin-top: 24px;
 }
 .friendContainer{

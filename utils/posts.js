@@ -22,7 +22,7 @@ export async function getSortedPostsData() {
 
     if (matterResult.data.image !== undefined) {
 
-      const rgb = await getColorFromURL(matterResult.data.image)
+      const rgb = await getColorFromURL(encodeURI(matterResult.data.image))
       matterResult.data.rgb = rgb;
 
     }

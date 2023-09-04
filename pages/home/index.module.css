@@ -1,6 +1,7 @@
 .home{
     position: relative;
     overflow: hidden;
+    max-width: 940px;
 }
 .home>div{
     float: left;
