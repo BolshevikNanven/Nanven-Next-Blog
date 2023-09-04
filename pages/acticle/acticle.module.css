@@ -80,3 +80,9 @@
     padding-left: 16px;
     margin-top: 6px;
 }
+
+@media screen and (max-width: 640px){
+    .navBar{
+        display: none;
+    }
+}

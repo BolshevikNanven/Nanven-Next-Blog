@@ -46,7 +46,8 @@ a{
 
 @media screen and (max-width: 640px){
     .main{
-        padding-left: 24px;
-        padding-right: 24px;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin: 0;
     }
 }
