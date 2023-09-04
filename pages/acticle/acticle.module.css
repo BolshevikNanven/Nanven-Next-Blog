@@ -1,8 +1,12 @@
+.mainBox{
+    max-width: 920px;
+}
 .acticleHead{
     font-family: "Segoe UI", SegoeUI, "Helvetica Neue", Helvetica, Arial, sans-serif;
     width: 100%;
 }
 .title{
+    color: var(--fontColorMain);
     font-size: 34px;
     line-height: 40px;
     text-align: left;
@@ -13,7 +17,7 @@
 .date{
     font-size: 15px;
     line-height: 20px;
-    color: #666;
+    color: var(--fontColorSub);
     padding-left: 2px;
     margin: 4px 0;
 }
@@ -23,6 +27,55 @@
 .hr{
     height: 1px;
     width: 100%;
-    background-color: #cccccc;
+    background-color: var(--fontColorbot);
     margin: 12px 0 8px 0;
+}
+
+.navBar{
+    top: 128px;
+    align-self: flex-start;
+    position: sticky;
+    padding: 16px;
+    margin-left: 24px;
+}
+.navBar::before{
+    content: '文章目录：';
+    position: absolute;
+    top: -8px;
+    font-size: 14px;
+    color: var(--fontColorMain);
+    font-weight: 600;
+}
+.navBar>:global(.title-anchor){
+    height: 24px;
+    box-sizing: border-box;
+    color: var(--fontColorSub);
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.6;
+    transition: color .14s;
+    position: relative;
+}
+.navBar>:global(.title-anchor):hover{
+    color: var(--fontColorMain);
+}
+.navBar>:global(.title-anchor.active){
+    color: #0078d4;
+}
+.navBar>:global(.title-anchor.active)::before{
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: -16px;
+    background-color: #007fe0;
+    border-radius: 99px;
+    width: 3px;
+    height: 18px;
+    box-sizing: border-box;
+}
+.navBar>:global(.title-anchor.title-level3){
+    padding-left: 16px;
+    margin-top: 6px;
 }

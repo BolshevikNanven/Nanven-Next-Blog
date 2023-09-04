@@ -74,6 +74,7 @@ export async function getPostData(id) {
 
   return {
     id,
+    defaultContent:matterResult.content,
     contentHtml,
     ...matterResult.data,
   };

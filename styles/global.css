@@ -15,14 +15,16 @@ a{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    overflow: hidden;
     min-height: 100vh;
 }
 .main{
     flex: 1;
-    margin: 0px auto 0 auto;
-    max-width: 940px;
-    padding: 16px;
+    margin: 0 24px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    padding: 0 16px;
     position: relative;
     min-height: 100vh;
 }
@@ -36,6 +38,10 @@ a{
 
 .ActicleBody{
     margin-top: 16px;
+}
+
+.useDarkFilter{
+    filter: brightness(var(--useDarkFilter));
 }
 
 @media screen and (max-width: 640px){

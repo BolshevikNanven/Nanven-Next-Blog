@@ -50,14 +50,16 @@ const Theme = {
         headerColor: '#f5f5f5',
         headerDivider: '#e2e2e2',
         btnHoverColor: 'rgba(0,0,0,.1)',
+        useDarkFilter: 1,
     },
     dark: {
-        backgroundColor: '#212121',
+        backgroundColor: '#1a1a1a',
         fontColorMain: '#eaeaea',
         fontColorSub: '#aaaaaa',
-        headerColor: '#313131',
+        headerColor: '#2a2a2a',
         headerDivider: '#5a5a5a',
         btnHoverColor: 'rgba(255,255,255,.1)',
+        useDarkFilter: 0.8,
     }
 }
 

@@ -12,6 +12,11 @@ import Img from "react-cool-img";
 
 export default function Home({ allPostsData }) {
 
+  const checkColorDark = (rgb) => {
+    const g = rgb[0] * 0.299 + rgb[1] * 0.587 + rgb[2] * 0.114;
+    return g > 192;
+  }
+
   return (
     <div className={style.home}>
       <Head>
@@ -32,12 +37,12 @@ export default function Home({ allPostsData }) {
           return (
             <div key={id} className={style.topBox}>
               <Link href={`/acticle/${id}`} >
-                <a className={style.topCard}>
+                <a className={style.topCard+' useDarkFilter'}>
                   <Img src={image} className={style.topImg} />
                   <div style={{ backgroundColor: rgbcolor }} className={style.topTextBox}>
-                    <a className={style.topTitle}>{title}</a>
+                    <a style={{color:checkColorDark(rgb)? '#111111': '#fafafa'}} className={style.topTitle}>{title}</a>
                     <div style={{ backgroundImage: 'linear-gradient(rgba(0,0,0,0),' + rgbcolor + ')' }} className={style.mask}>
-                      <span className={style.topDate}>{date}</span>
+                      <span style={{color:checkColorDark(rgb)? '#111111': '#fafafa'}} className={style.topDate}>{date}</span>
                     </div>
                   </div>
                 </a>
