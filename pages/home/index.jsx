@@ -20,7 +20,7 @@ export default function Home({ allPostsData }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h2 style={{ marginLeft: '10px', cursor: 'default' }}>置顶</h2>
+      <h2 className={style.header}>置顶</h2>
       {allPostsData.map(({ id, title, description, image, date, top, rgb }) => {
 
         if (top) {

@@ -6,15 +6,15 @@ import { useRouter } from "next/router";
 import React from 'react'
 
 
-const Header=(props)=>{
+const Header = (props) => {
 
-    const {isMenuOpen,switchMenuOpen}=props;
-    const {isDarkmode,switchDarkmode}=props;
+    const { isMenuOpen, switchMenuOpen } = props;
+    const { isDarkmode, switchDarkmode } = props;
 
-    const Router=useRouter();
+    const Router = useRouter();
 
-    const menustate=isMenuOpen ? `${style.menubtn} ${style.menuOpen}`: style.menubtn;
-    const logodarkstate=isDarkmode ? `${style.logo} ${style.logoWhite}`: style.logo;
+    const menustate = isMenuOpen ? `${style.menubtn} ${style.menuOpen}` : style.menubtn;
+    const logodarkstate = isDarkmode ? `${style.logo} ${style.logoWhite}` : style.logo;
 
 
     return (
@@ -27,15 +27,15 @@ const Header=(props)=>{
                 </button>
                 <div className={logodarkstate}></div>
                 <div className={style.headerSpace}></div>
-                <div className={`${style.headerBtn} ${Router.pathname=='/home' ? `${style.none}`: ''}`}>
-                    <Link href='/'>
-                        <FontAwesomeIcon icon={['fas','reply']} size='xs' fixedWidth />
-                    </Link>
-                </div>
+                <Link href='/'>
+                    <div className={`${style.headerBtn} ${Router.pathname == '/home' ? `${style.none}` : ''}`}>
+                        <FontAwesomeIcon icon={['fas', 'reply']} size='xs' fixedWidth />
+                    </div>
+                </Link>
                 <div className={style.cutbar}></div>
                 <div>
                     <div className={style.headerBtn} onClick={switchDarkmode}>
-                        <FontAwesomeIcon icon={['fas',`${isDarkmode ? 'moon' :'sun'}`]} size='sm' fixedWidth />
+                        <FontAwesomeIcon icon={['fas', `${isDarkmode ? 'moon' : 'sun'}`]} size='sm' fixedWidth />
                     </div>
                 </div>
             </div>

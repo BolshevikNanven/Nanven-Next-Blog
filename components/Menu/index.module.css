@@ -38,15 +38,15 @@
     align-items: center;
     transition: background-color 0.26s ,transform 0.16s;
     cursor: pointer;
-    color: #000000;
+    color: var(--fontColorMain);
     text-decoration: none;
     user-select: none;
 }
 :global(.active) .menuList{
-    background-color: #f1f1f1 !important;
+    background-color: var(--headerColor) !important;
 }
 .menuList:hover{
-    background-color: #f1f1f1;
+    background-color: var(--headerColor);
 }
 .menuList:active{
     transform: scale(0.96);
@@ -63,7 +63,7 @@
     margin-left: 16px;
     font-size: 14px;
     text-decoration: none;
-    color: #000000;
+    color: var(--fontColorMain);
 }
 .subheader{
     user-select: none;
@@ -81,7 +81,7 @@
         width: 100vw;
         height: calc(100vh);
         z-index: 998;
-        background-color: #ffffff;
+        background-color: var(--backgroundColor);
         padding: 16px;
     }
     .menuBoxClose{

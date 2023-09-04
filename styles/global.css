@@ -3,14 +3,14 @@ html,body,div,p{
     margin: 0;
     box-sizing: border-box;
 }
-body{
-    background-color: #ffffff;
-}
+
 a{
     text-decoration: none;
 }
 
 .base{
+    transition: background-color .2s;
+    background-color: var(--backgroundColor);
     margin-top: 88px;
     display: flex;
     flex-direction: row;

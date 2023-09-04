@@ -5,6 +5,11 @@
 .home>div{
     float: left;
 }
+.header{
+    color: var(--fontColorMain);
+    margin-left: 10px;
+    cursor: default;
+}
 .topBox{
     width: 30%;
     margin: 2px 7px 6px 7px;
@@ -36,7 +41,7 @@
     margin: 0 12px;
     font-size: 17px;
     font-weight: 600;
-    color: #000000;
+    color: var(--fontColorMain);
     height: 56px;
     max-height: 56px;
     text-overflow: ellipsis;
@@ -73,14 +78,14 @@
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: #bec0bf;
+    background: var(--fontColorbot);
     margin-left: 4px;
     margin-bottom: 2px;
     display: inline-block;
 }
 .date{
     display: inline-block;
-    color: #8a8f8d;
+    color: var(--fontColorbot);
     padding-left: 14px;
     margin: 0;
     user-select: none;
@@ -106,7 +111,7 @@
 .title{
     font-size: 16px;
     font-weight: 500;
-    color: #262626;
+    color: var(--fontColorMain);
     display: block;
     text-overflow: ellipsis;
     text-decoration: none;
@@ -119,7 +124,7 @@
     margin-top: 6px;
     margin-bottom: 0;
     font-size: 14px;
-    color: #585a5a;
+    color: var(--fontColorSub);
     display: -webkit-box;
     max-height: 44px;
     -webkit-line-clamp: 2;
@@ -129,7 +134,7 @@
     line-height: 22px;
 }
 .headstart{
-    color: #bec0bf;
+    color: var(--fontColorbot);
     font-size: 12px;
     padding-left: 24px;
     position: relative;
@@ -140,7 +145,7 @@
     content: " ";
     height: 5px;
     width: 5px;
-    background: #bec0bf;
+    background: var(--fontColorbot);
     border-radius: 50%;
     margin-top: -4px;
     margin-left: 3px;
@@ -154,14 +159,14 @@
     -ms-flex-align: center;
     align-items: center;
     font-size: 14px;
-    color: #8a8f8d;
+    color: var(--fontColorbot);
     line-height: 20px;
     margin-top: 12px;
 }
 .botbar a{
     text-decoration: none;
     font-size: 14px;
-    color: #8a8f8d;
+    color: var(--fontColorSub);
     line-height: 20px;
     margin-left: 8px;
     padding-bottom: 2px;

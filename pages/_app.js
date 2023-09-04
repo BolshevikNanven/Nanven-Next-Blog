@@ -1,7 +1,8 @@
 import Header from '../components/Header'
 import Menu from '../components/Menu'
+import ThemeProvider from '../components/ThemeProvider';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import '../components/Fontawesome';
 
@@ -10,27 +11,54 @@ import '../styles/fontawesome.css';
 import '../styles/sspai.css';
 
 
-
 function Myapp({ Component, pageProps }) {
 
-    const [is_MenuOpen, switch_MenuOpen] = useState(true);
-    const [is_Darkmode, switch_Darkmode] = useState(false);
+    const [isMenuOpen, switchMenuOpen] = useState(false);
+    const [isDarkmode, switchDarkmode] = useState(false);
+
+    useEffect(() => {
+        //设置移动端
+        if (window.innerWidth > 620) switchMenuOpen(true);
+
+        //设置黑暗模式
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) switchDarkmode(true);
+
+    }, [])
 
     return (
-        <>
+        <ThemeProvider theme={isDarkmode ? Theme.dark : Theme.light}>
             <Header
-                isMenuOpen={is_MenuOpen} switchMenuOpen={() => { switch_MenuOpen(!is_MenuOpen) }}
-                isDarkmode={is_Darkmode} switchDarkmode={() => { switch_Darkmode(!is_Darkmode) }}
+                isMenuOpen={isMenuOpen} switchMenuOpen={() => { switchMenuOpen(!isMenuOpen) }}
+                isDarkmode={isDarkmode} switchDarkmode={() => { switchDarkmode(!isDarkmode) }}
             />
             <div className='base'>
-                <Menu isMenuOpen={is_MenuOpen} switchMenuOpen={() => { switch_MenuOpen(!is_MenuOpen) }} />
+                <Menu isMenuOpen={isMenuOpen} switchMenuOpen={() => { switchMenuOpen(!isMenuOpen) }} />
                 <div className='main'>
                     <Component {...pageProps} />
                 </div>
             </div>
-        </>
+        </ThemeProvider>
     );
+}
 
+const Theme = {
+    light: {
+        backgroundColor: '#ffffff',
+        fontColorMain: '#000000',
+        fontColorSub: '#585a5a',
+        fontColorbot: '#959695',
+        headerColor: '#f5f5f5',
+        headerDivider: '#e2e2e2',
+        btnHoverColor: 'rgba(0,0,0,.1)',
+    },
+    dark: {
+        backgroundColor: '#212121',
+        fontColorMain: '#eaeaea',
+        fontColorSub: '#aaaaaa',
+        headerColor: '#313131',
+        headerDivider: '#5a5a5a',
+        btnHoverColor: 'rgba(255,255,255,.1)',
+    }
 }
 
 export default Myapp;
