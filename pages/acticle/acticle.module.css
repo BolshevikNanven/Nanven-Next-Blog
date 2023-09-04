@@ -1,4 +1,5 @@
 .mainBox{
+    flex: 1;
     max-width: 920px;
 }
 .acticleHead{
