@@ -96,7 +96,7 @@ function CategorySelector({ open = false, value, onSelectOption, selectedOptions
         {openState ?
           <div className={style.selectListBox}>
             {selectedOptions?.filter(option => option.value !== value).map(option => (
-              <div className={style.selectList}>
+              <div key={open.value} className={style.selectList}>
 
               </div>
             ))}
