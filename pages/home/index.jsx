@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import style from './index.module.css';
 import Img from "react-cool-img";
+import { useState } from 'react';
 
 
 export default function Home({ allPostsData }) {
@@ -25,11 +26,9 @@ export default function Home({ allPostsData }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h2 className={style.header}>置顶</h2>
+      <CategorySelector value='全部' />
       {allPostsData.map(({ id, title, description, image, date, top, rgb }) => {
-
         if (top) {
-
           if (rgb !== undefined) {
             var rgbcolor = 'rgb(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ')';
           }
@@ -37,12 +36,12 @@ export default function Home({ allPostsData }) {
           return (
             <div key={id} className={style.topBox}>
               <Link href={`/acticle/${id}`} >
-                <a className={style.topCard+' useDarkFilter'}>
+                <a className={style.topCard + ' useDarkFilter'}>
                   <Img src={image} className={style.topImg} />
                   <div style={{ backgroundColor: rgbcolor }} className={style.topTextBox}>
-                    <a style={{color:checkColorDark(rgb)? '#111111': '#fafafa'}} className={style.topTitle}>{title}</a>
+                    <a style={{ color: checkColorDark(rgb) ? '#111111' : '#fafafa' }} className={style.topTitle}>{title}</a>
                     <div style={{ backgroundImage: 'linear-gradient(rgba(0,0,0,0),' + rgbcolor + ')' }} className={style.mask}>
-                      <span style={{color:checkColorDark(rgb)? '#111111': '#fafafa'}} className={style.topDate}>{date}</span>
+                      <span style={{ color: checkColorDark(rgb) ? '#111111' : '#fafafa' }} className={style.topDate}>{date}</span>
                     </div>
                   </div>
                 </a>
@@ -74,13 +73,39 @@ export default function Home({ allPostsData }) {
         }
       })}
 
-
       <div className={style.headstart}>起点</div>
-
     </div>
   )
 }
 
+function CategorySelector({ open = false, value, onSelectOption, selectedOptions, ...props }) {
+
+  const [openState, SetopenState] = useState(open || false)
+
+  const handleClickOpen = () => {
+    SetopenState(prev => !prev);
+  }
+
+  return (
+    <div className={style.CategorySelectorBox} onClick={handleClickOpen}>
+      <div className={style.CategorySelector}>
+        <div className={style.selectedHeader}>
+          <h2 className={style.selectedValue}>{value}</h2>
+          <FontAwesomeIcon className={style.icon} icon={['fas', 'chevron-down']} size='md' fixedWidth />
+        </div>
+        {openState ?
+          <div className={style.selectListBox}>
+            {selectedOptions?.filter(option => option.value !== value).map(option => (
+              <div className={style.selectList}>
+
+              </div>
+            ))}
+          </div>
+          : null}
+      </div>
+    </div>
+  )
+}
 
 export async function getStaticProps() {
   const allPostsData = await getSortedPostsData();

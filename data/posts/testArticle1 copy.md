@@ -1,7 +1,7 @@
 ---
 title: '测试文章2'
 description: '网站新建还未完善, 此文将会持续更新至完善'
-image: 'https://drive.nanven.cn/api?path=/10班照片/lyp/下学期/IMG_20220227_175111.jpg&raw=true'
+image: 'https://picss.sunbangyan.cn/2023/09/06/12iv2om.jpg'
 date: '2022-9-12'
 top: true
 ---

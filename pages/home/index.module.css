@@ -6,14 +6,10 @@
 .home>div{
     float: left;
 }
-.header{
-    color: var(--fontColorMain);
-    margin-left: 10px;
-    cursor: default;
-}
 .topBox{
-    width: 30%;
-    margin: 2px 7px 6px 7px;
+    box-sizing: border-box;
+    width: 33.3%;
+    padding: 2px 7px 6px 7px;
 }
 .topBox:hover .topImg{
     transform: scale(1.03);
@@ -179,9 +175,51 @@
     transition: all 0.1s ease-in-out;
 }
 
+.CategorySelectorBox{
+    padding: 12px 8px;
+    width: 100%;
+    cursor: pointer;
+    user-select: none;
+}
+.CategorySelector{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+    border: 3px solid transparent;
+    transition: border .14s;
+}
+.CategorySelector .selectedHeader{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+}
+.CategorySelector .selectedValue{
+    color: var(--fontColorMain);
+    padding: 12px 8px;
+    margin: 0;
+}
+.CategorySelector .icon{
+    margin: 0 12px;
+    color: var(--fontColorMain);
+}
+.CategorySelector.active,.CategorySelector:hover{
+    border-color: var(--fontColorMain);
+}
+.CategorySelector .selectListBox{
+    display: flex;
+    flex-direction: column;
+}
+.CategorySelector .selectList{
+
+}
+
 @media screen and (max-width: 840px){
     .topBox{
-        width: 45%;
+        width: 50%;
     }
     .topTitle{
         font-size: 15px;

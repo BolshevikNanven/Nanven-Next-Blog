@@ -1,7 +1,7 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
 
 import {
-    faSun, faMoon, faParagraph, faFolderOpen, faPaperclip, faEnvelope, faReply, faChevronCircleRight
+    faSun, faMoon, faParagraph, faFolderOpen, faPaperclip, faEnvelope, faReply, faChevronCircleRight,faChevronDown
 } from '@fortawesome/free-solid-svg-icons';
 
 import {
@@ -10,5 +10,5 @@ import {
 
 library.add(
     faSun, faMoon, faParagraph, faFolderOpen, faPaperclip, faEnvelope,
-    faGithub, faReply, faChevronCircleRight,
+    faGithub, faReply, faChevronCircleRight,faChevronDown
 );
