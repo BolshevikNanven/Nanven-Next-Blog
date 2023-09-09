@@ -4,8 +4,6 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 
-import { getColorFromURL } from 'color-thief-node';
-
 
 const postsDirectory = path.join(process.cwd(), 'data/posts');
 
@@ -20,12 +18,6 @@ export async function getSortedPostsData() {
 
     const matterResult = matter(fileContents);
 
-    if (matterResult.data.image !== undefined) {
-
-      const rgb = await getColorFromURL(encodeURI(matterResult.data.image))
-      matterResult.data.rgb = rgb;
-
-    }
 
     return {
       id,

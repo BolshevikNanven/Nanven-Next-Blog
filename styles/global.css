@@ -1,7 +1,23 @@
+@font-face {
+    font-family: "Noto_Sans_SC";
+    src: url(../public/NotoSansSC-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: "myRoboto";
+    src: url(../public/roboto/Roboto-Regular.ttf),
+        url(../public/roboto/Roboto-Thin.ttf),
+        url(../public/roboto/Roboto-Black.ttf),
+        url(../public/roboto/Roboto-Bold.ttf),
+        url(../public/roboto/Roboto-Light.ttf),
+        url(../public/roboto/Roboto-Medium.ttf),;
+}
+
 html,body,div,p{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: "Noto_Sans_SC","myRoboto";
 }
 
 a{
@@ -19,12 +35,10 @@ a{
 }
 .main{
     flex: 1;
-    margin: 0 24px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
-    padding: 0 16px;
     position: relative;
     min-height: 100vh;
 }

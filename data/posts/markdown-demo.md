@@ -1,6 +1,7 @@
 ---
 title: '[少数派]Markdown主题样式'
 description: '以红色为主体色的Markdown主题,本站配合 remark 使用,实现了基本的markdown样式'
+image: '/IMG_0967.JPG'
 date: '2022-9-11'
 top: false
 ---

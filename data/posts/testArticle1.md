@@ -1,7 +1,7 @@
 ---
 title: '测试文章1'
 description: '网站新建还未完善, 此文将会持续更新至完善'
-image: 'https://picdl.sunbangyan.cn/2023/09/06/12itzgm.jpg'
+image: '/IMG_0583.JPG'
 date: '2022-9-12'
 top: true
 ---

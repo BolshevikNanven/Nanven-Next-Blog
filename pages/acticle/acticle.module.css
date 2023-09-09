@@ -1,12 +1,17 @@
-.mainBox{
+.mainBox {
     flex: 1;
-    max-width: 920px;
 }
-.acticleHead{
+.acticleMain{
+    margin: 0 auto;
+    max-width: 928px;
+}
+
+.acticleHead {
     font-family: "Segoe UI", SegoeUI, "Helvetica Neue", Helvetica, Arial, sans-serif;
     width: 100%;
 }
-.title{
+
+.title {
     color: var(--fontColorMain);
     font-size: 34px;
     line-height: 40px;
@@ -15,74 +20,80 @@
     font-weight: 100;
     margin-bottom: 4px;
 }
-.date{
+
+.date {
     font-size: 15px;
     line-height: 20px;
     color: var(--fontColorSub);
     padding-left: 2px;
     margin: 4px 0;
 }
-.acticleBody{
+
+.acticleBody {
     margin-top: 16px;
 }
-.hr{
+
+.hr {
     height: 1px;
     width: 100%;
     background-color: var(--fontColorbot);
     margin: 12px 0 8px 0;
 }
 
-.navBar{
-    top: 128px;
+.navBar {
+    top: 116px;
     align-self: flex-start;
     position: sticky;
     padding: 16px;
-    margin-left: 24px;
+    padding-right: 0;
+    box-sizing: border-box;
+    width: 294px;
 }
-.navBar::before{
+
+.navBar::before {
     content: '文章目录：';
     position: absolute;
-    top: -8px;
-    font-size: 14px;
+    top: -10px;
+    left: 20px;
+    font-size: 14.5px;
     color: var(--fontColorMain);
     font-weight: 600;
 }
-.navBar>:global(.title-anchor){
-    height: 24px;
+
+.navBar>:global(.title-anchor) {
+    display: block;
     box-sizing: border-box;
     color: var(--fontColorSub);
-    margin-top: 10px;
+    margin-top: 6px;
     cursor: pointer;
-    font-size: 15px;
-    font-weight: 500;
+    font-size: 14px;
+    padding:7px 12px;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    font-weight: 400;
     line-height: 1.6;
     transition: color .14s;
     position: relative;
 }
-.navBar>:global(.title-anchor):hover{
+
+.navBar>:global(.title-anchor):hover {
     color: var(--fontColorMain);
 }
-.navBar>:global(.title-anchor.active){
+
+.navBar>:global(.title-anchor.active) {
+    background-color: rgb(230, 247, 255);
     color: #0078d4;
+    font-weight: 600;
 }
-.navBar>:global(.title-anchor.active)::before{
-    content: '';
-    position: absolute;
-    top: 3px;
-    left: -16px;
-    background-color: #007fe0;
-    border-radius: 99px;
-    width: 3px;
-    height: 18px;
-    box-sizing: border-box;
-}
-.navBar>:global(.title-anchor.title-level3){
-    padding-left: 16px;
+
+
+.navBar>:global(.title-anchor.title-level3) {
+    padding-left: 24px;
     margin-top: 6px;
 }
 
-@media screen and (max-width: 640px){
-    .navBar{
+@media screen and (max-width: 640px) {
+    .navBar {
         display: none;
     }
 }

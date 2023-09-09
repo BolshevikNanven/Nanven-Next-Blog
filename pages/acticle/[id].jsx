@@ -26,18 +26,20 @@ const Acticle = ({ postData }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={style.mainBox}>
-        <div className={style.acticleHead}>
-          <h1 className={style.title}>{postData.title}</h1>
-          <p className={style.date}>{postData.date}</p>
-        </div>
-        <div className={style.hr}></div>
-        <div className='ActicleBody'>
-          <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        <div className={style.acticleMain}>
+          <div className={style.acticleHead}>
+            <h1 className={style.title}>{postData.title}</h1>
+            <p className={style.date}>{postData.date}</p>
+          </div>
+          <div className={style.hr}></div>
+          <div className='ActicleBody'>
+            <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+          </div>
         </div>
       </div>
 
       <MarkdownNavbar className={style.navBar} ordered={false} headingTopOffset={40} source={postData.defaultContent} />
-      
+
     </>
 
   )
