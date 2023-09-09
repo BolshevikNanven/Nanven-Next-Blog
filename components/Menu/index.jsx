@@ -21,7 +21,7 @@ const Menu = (props) => {
                 <div className={style.menu}>
                     <div className={style.menuBody}>
 
-                        <NavLink href='/home' extraMatch={'/acticle'}>
+                        <NavLink href='/home' extraMatch={'/article'}>
                             <div className={style.menuList}>
                                 <span className={style.menuListIcon}>
                                     <FontAwesomeIcon icon={['fas', 'paragraph']} size='xs' fixedWidth />

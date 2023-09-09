@@ -1,0 +1,141 @@
+.mainBox {
+    flex: 1;
+    padding-bottom: 32px;
+}
+
+.articleMain {
+    margin: 0 auto;
+    max-width: 886px;
+}
+
+.articleHead {
+    margin-top: 64px;
+    width: 100%;
+}
+
+.title {
+    color: var(--fontColorMain);
+    font-size: 74px;
+    line-height: 78px;
+    text-align: left;
+    overflow-wrap: break-word;
+    font-weight: 400;
+    margin: 0;
+}
+
+.date {
+    font-size: 18px;
+    color: var(--fontColorSub);
+    padding-left: 6px;
+}
+
+.descriptionContainer {
+    display: flex;
+    flex-direction: row;
+    margin: 36px 0;
+    margin-bottom: 56px;
+}
+
+.description {
+    font-size: 36px;
+    line-height: 42px;
+    color: var(--fontColorMain);
+    font-weight: 300;
+    flex-basis: 70%;
+}
+.actionContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 16px;
+}
+.actionBtn{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+    outline: 0;
+    background-color: var(--btnColor);
+    color: var(--fontColorMain);
+    border-radius: 99px;
+    margin-bottom: 16px;
+    border: 0;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: all .1s;
+}
+.actionBtn:hover{
+    background-color: var(--btnHoverColor);
+}
+
+.image{
+    position: relative;
+    width: 100%;
+    padding-bottom: 70%;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.articleBody {
+    margin-top: 16px;
+}
+
+
+.navBar {
+    top: 116px;
+    align-self: flex-start;
+    position: sticky;
+    padding: 16px;
+    padding-right: 0;
+    box-sizing: border-box;
+    width: 294px;
+}
+
+.navBar::before {
+    content: '文章目录：';
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    font-size: 14.5px;
+    color: var(--fontColorMain);
+    font-weight: 600;
+}
+
+.navBar>:global(.title-anchor) {
+    display: block;
+    box-sizing: border-box;
+    color: var(--fontColorSub);
+    margin-top: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 9px 14px;
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+    transition: color .14s;
+    position: relative;
+}
+
+.navBar>:global(.title-anchor):hover {
+    color: var(--fontColorMain);
+}
+
+.navBar>:global(.title-anchor.active) {
+    background-color: var(--brandBackgroundColor);
+    color: #0078d4;
+    font-weight: 600;
+}
+
+
+.navBar>:global(.title-anchor.title-level3) {
+    padding-left: 24px;
+    margin-top: 6px;
+}
+
+@media screen and (max-width: 640px) {
+    .navBar {
+        display: none;
+    }
+}

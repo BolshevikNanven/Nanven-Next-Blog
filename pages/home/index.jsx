@@ -23,7 +23,7 @@ export default function Home({ allPostsData }) {
 
                     return (
                         <div key={id} className={style.acticleContainer}>
-                            <Link href={`/acticle/${id}`}>
+                            <Link href={`/article/${id}`}>
                                 <a className={style.acticle}>
                                     <div className={style.acticleHeader}>
                                         <div className={style.titleContainer}>
@@ -35,7 +35,7 @@ export default function Home({ allPostsData }) {
                                         </div>
                                     </div>
                                     <div className={style.acticleImage}>
-                                        <Image src={image} layout='fill' objectFit='cover' />
+                                        <Image className='useDarkFilter' src={image} layout='fill' objectFit='cover' />
                                     </div>
                                 </a>
                             </Link>

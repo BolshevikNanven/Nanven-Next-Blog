@@ -5,6 +5,7 @@
     padding: 0 32px;
     margin: 0 auto;
     max-width: 1200px;
+    padding-bottom: 32px;
 }
 
 .acticleContainer {
@@ -24,9 +25,10 @@
     padding:48px 32px;
     border-radius: 32px;
     border: 2px solid #cccccc;
+    gap: 32px;
 }
 .acticleContainer:nth-child(1) .acticleHeader{
-    flex-basis: 40%;
+    flex-basis: 32%;
 }
 .acticleContainer:nth-child(1) .acticleImage{
     padding-bottom: 0;
@@ -34,6 +36,7 @@
 }
 .acticleContainer:nth-child(1) .title{
     font-size: 56px;
+    line-height: 64px;
 }
 
 
@@ -76,11 +79,11 @@
     font-size: 32px;
     font-weight: 300;
     background: linear-gradient(to right,#0078d4 ,#0078d3)no-repeat left bottom;
-    background-size: 0 3px;
+    background-size: 0 4px;
     transition: background-size .6s;
 }
 .acticle:hover .title{
-    background-size: 100% 3px;
+    background-size: 100% 4px;
 }
 
 .date {
@@ -102,4 +105,37 @@
     position: relative;
     padding-bottom: 75%;
     transition: all .3s;
+}
+
+@media screen and (max-width: 840px){
+    .homeContainer{
+        padding: 0;
+    }
+    .acticleContainer{
+        flex-basis: 100%;
+        padding: 0 !important;
+        margin-top: 32px;
+    }
+
+    .acticleContainer:nth-child(1) .acticle,.acticleContainer .acticle{
+        min-height: 0;
+        box-sizing: border-box;
+        flex-direction: row;
+        padding:32px 16px;
+        border-radius: 32px;
+        border: 2px solid #cccccc;
+        flex-direction: column;
+        gap: 0;
+    }
+    .acticleContainer:nth-child(1) .acticleImage{
+        padding-bottom: 70%;
+        flex: 1;
+    }
+    .acticleContainer:nth-child(1) .title{
+        font-size: 32px;
+        line-height: 38px;
+    }
+    .titleContainer{
+        margin-bottom: 16px;
+    }
 }

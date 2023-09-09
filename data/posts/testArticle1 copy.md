@@ -2,7 +2,7 @@
 title: '测试文章2'
 description: '网站新建还未完善, 此文将会持续更新至完善'
 image: '/IMG_0583.JPG'
-date: '2022-9-12'
+date: '2022.9.12'
 top: true
 ---
 

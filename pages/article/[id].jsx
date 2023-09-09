@@ -1,21 +1,26 @@
 import Head from 'next/head'
+import Image from 'next/image'
+
 import { getAllPostIds, getPostData } from '../../utils/posts'
 
-import style from './acticle.module.css'
+import style from './article.module.css'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/github.css'
 import javascript from 'highlight.js/lib/languages/javascript'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { useEffect } from 'react'
 
 import MarkdownNavbar from 'markdown-navbar'
 
 
-const Acticle = ({ postData }) => {
+const Article = ({ postData }) => {
 
   useEffect(() => {
     hljs.registerLanguage('jsx', javascript);
     hljs.highlightAll();
-  })
+  },[])
 
   return (
     <>
@@ -26,13 +31,22 @@ const Acticle = ({ postData }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={style.mainBox}>
-        <div className={style.acticleMain}>
-          <div className={style.acticleHead}>
-            <h1 className={style.title}>{postData.title}</h1>
+        <div className={style.articleMain}>
+          <div className={style.articleHead}>
             <p className={style.date}>{postData.date}</p>
+            <h1 className={style.title}>{postData.title}</h1>
+            <div className={style.descriptionContainer}>
+              <p className={style.description}>{postData.description}</p>
+              <div className={style.actionContainer}>
+                <button className={style.actionBtn}><FontAwesomeIcon icon={['fas', 'share']} fixedWidth />转发</button>
+                <button className={style.actionBtn}><FontAwesomeIcon icon={['fas', 'heart']} fixedWidth />喜欢</button>
+              </div>
+            </div>
+            <div className={style.image}>
+              <Image className='useDarkFilter' src={postData.image} layout='fill' objectFit='cover'/>
+            </div>
           </div>
-          <div className={style.hr}></div>
-          <div className='ActicleBody'>
+          <div className='articleBody'>
             <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
           </div>
         </div>
@@ -46,7 +60,7 @@ const Acticle = ({ postData }) => {
 
 }
 
-export default Acticle;
+export default Article;
 
 export async function getStaticPaths() {
   const paths = getAllPostIds();
