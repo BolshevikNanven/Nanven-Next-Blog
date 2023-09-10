@@ -14,6 +14,10 @@ const Menu = (props) => {
     const menublankstate = isMenuOpen ? style.menuBoxBlank : `${style.menuBoxBlank} ${style.menuBoxBlankClose}`;
     const menustate = isMenuOpen ? style.menuBox : `${style.menuBox} ${style.menuBoxClose}`;
 
+    const handleClickMenu = () => {
+        if (window.innerWidth < 620) switchMenuOpen(false);
+    }
+
     return (
         <>
             <div className={menublankstate}></div>
@@ -22,7 +26,7 @@ const Menu = (props) => {
                     <div className={style.menuBody}>
 
                         <NavLink href='/home' extraMatch={'/article'}>
-                            <div className={style.menuList}>
+                            <div className={style.menuList} onClick={handleClickMenu}>
                                 <span className={style.menuListIcon}>
                                     <FontAwesomeIcon icon={['fas', 'paragraph']} size='xs' fixedWidth />
                                 </span>
@@ -31,20 +35,13 @@ const Menu = (props) => {
                         </NavLink>
 
                         <NavLink href='/friend' >
-                            <div className={style.menuList}>
+                            <div className={style.menuList} onClick={handleClickMenu}>
                                 <span className={style.menuListIcon}>
                                     <FontAwesomeIcon icon={['fas', 'paperclip']} size='xs' fixedWidth />
                                 </span>
                                 <a className={style.menuListContent}>友情链接</a>
                             </div>
                         </NavLink>
-
-                        <a href='https://nanvendrive.icedeer.net/' rel="noreferrer" target='_blank' className={style.menuList}>
-                            <span className={style.menuListIcon}>
-                                <FontAwesomeIcon icon={['fas', 'folder-open']} size='xs' fixedWidth />
-                            </span>
-                            <span className={style.menuListContent}>文件站</span>
-                        </a>
                         <div className={style.subheader}>与我联系</div>
                         <a href='mailto:icedeerwanna@outlook.com' rel="noreferrer" target='_blank' className={style.menuList}>
                             <span className={style.menuListIcon}>

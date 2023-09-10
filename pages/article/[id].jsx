@@ -43,7 +43,7 @@ const Article = ({ postData }) => {
               </div>
             </div>
             <div className={style.image}>
-              <Image className='useDarkFilter' src={postData.image} layout='fill' objectFit='cover'/>
+              <img className='useDarkFilter' src={postData.image} />
             </div>
           </div>
           <div className='articleBody'>

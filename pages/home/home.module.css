@@ -10,8 +10,11 @@
 
 .acticleContainer {
     box-sizing: border-box;
-    margin-top: 140px;
+    margin-top: 128px;
     flex-basis: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .acticleContainer:nth-child(1){
@@ -39,16 +42,13 @@
     line-height: 64px;
 }
 
-
-.acticleContainer:nth-child(4n+2),
-.acticleContainer:nth-child(4n+3) {
-    padding-right: 142px;
+.acticleContainer:nth-child(4n+2),.acticleContainer:nth-child(4n+3){
+    padding-right: 128px;
+}
+.acticleContainer:nth-child(4n+4),.acticleContainer:nth-child(4n+5){
+    padding-left: 128px;
 }
 
-.acticleContainer:nth-child(4n+4),
-.acticleContainer:nth-child(4n+5) {
-    padding-left: 142px;
-}
 
 .acticle:hover .acticleImage{
     border-radius: 32px;
@@ -100,12 +100,15 @@
 }
 
 .acticleImage {
+    width: 100%;
     overflow: hidden;
     border-radius: 16px;
     position: relative;
-    padding-bottom: 75%;
     transition: all .3s;
+    background-size: cover;
+    max-height: 512px;
 }
+
 
 @media screen and (max-width: 840px){
     .homeContainer{
@@ -128,7 +131,6 @@
         gap: 0;
     }
     .acticleContainer:nth-child(1) .acticleImage{
-        padding-bottom: 70%;
         flex: 1;
     }
     .acticleContainer:nth-child(1) .title{

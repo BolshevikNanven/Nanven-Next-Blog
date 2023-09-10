@@ -34,9 +34,7 @@ export default function Home({ allPostsData }) {
                                             <div className={style.description}>{description}</div>
                                         </div>
                                     </div>
-                                    <div className={style.acticleImage}>
-                                        <Image className='useDarkFilter' src={image} layout='fill' objectFit='cover' />
-                                    </div>
+                                    <img className={`${style.acticleImage} useDarkFilter`} src={image} />
                                 </a>
                             </Link>
                         </div>
