@@ -55,7 +55,7 @@ const Theme = {
         useDarkFilter: 1,
     },
     dark: {
-        backgroundColor: '#1a1a1a',
+        backgroundColor: '#0f0f0f',
         fontColorMain: '#eaeaea',
         fontColorSub: '#aaaaaa',
         headerColor: '#2a2a2a',

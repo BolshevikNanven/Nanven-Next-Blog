@@ -6,6 +6,7 @@
 .articleMain {
     margin: 0 auto;
     max-width: 886px;
+    overflow: hidden;
 }
 
 .articleHead {
@@ -85,6 +86,7 @@
 
 .articleBody {
     margin-top: 16px;
+    width: 100%;
 }
 
 

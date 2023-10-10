@@ -30,7 +30,7 @@ const Menu = (props) => {
                                 <span className={style.menuListIcon}>
                                     <FontAwesomeIcon icon={['fas', 'paragraph']} size='xs' fixedWidth />
                                 </span>
-                                <a className={style.menuListContent}>文章</a>
+                                <span className={style.menuListContent}>文章</span>
                             </div>
                         </NavLink>
 
@@ -39,10 +39,12 @@ const Menu = (props) => {
                                 <span className={style.menuListIcon}>
                                     <FontAwesomeIcon icon={['fas', 'paperclip']} size='xs' fixedWidth />
                                 </span>
-                                <a className={style.menuListContent}>友情链接</a>
+                                <span className={style.menuListContent}>友情链接</span>
                             </div>
                         </NavLink>
-                        <div className={style.subheader}>与我联系</div>
+
+                        <span className={style.subheader}>与我联系</span>
+                        
                         <a href='mailto:icedeerwanna@outlook.com' rel="noreferrer" target='_blank' className={style.menuList}>
                             <span className={style.menuListIcon}>
                                 <FontAwesomeIcon icon={['fas', 'envelope']} size='xs' fixedWidth />
