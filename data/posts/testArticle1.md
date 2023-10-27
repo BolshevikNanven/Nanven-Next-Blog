@@ -1,7 +1,7 @@
 ---
 title: '测试文章1'
 description: '网站新建还未完善, 此文将会持续更新至完善'
-image: '/IMG_0583.JPG'
+image: 'https://z1.ax1x.com/2023/10/27/piZXSmj.jpg'
 date: '2022.9.12'
 top: true
 ---

@@ -1,59 +1,74 @@
-.title{
-    margin:0px 8px 16px 8px;
+.title {
+    margin: 0px 8px 16px 8px;
     user-select: none;
 }
-.friendBox{
-    max-width: 920px;
+
+.friendBox {
+    padding: 0 32px;
+    margin: 0 auto;
     margin-top: 24px;
+    width: 100%;
+    max-width: 1200px;
+    padding-bottom: 64px;
 }
-.friendContainer{
+
+.friendContainer {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
 }
-.cardBox{
+
+.cardBox {
     box-sizing: border-box;
-    padding: 16px 16px;
+    padding: 16px 24px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 12px;
-    border-radius: 11px;
-    width: 25%;
-    transition: transform .1s;
+    margin-bottom: 18px;
+    border-radius: 16px;
+    border: 2px solid #cccccc;
+    cursor: default;
 }
-.cardBox:hover{
-    box-shadow: 0px 4px 12px 1px rgba(0, 0, 0, 0.12);
-    transform: scale(1.04);
+
+
+.icon {
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
 }
-.icon{
+.iconContainer{
     width: 52px;
     height: 52px;
-    border-radius: 3px;
+    margin-right: 8px;
 }
-.detail{
+
+.detail {
     margin-left: 6px;
 }
-.name{
+
+.name {
     overflow: hidden;
     text-overflow: ellipsis;
     font-weight: 600;
     color: #212121;
+    font-size: 17px;
 }
-.description{
+
+.description {
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 13px;
     color: #636765;
 }
 
-@media screen and (max-width: 640px){
-    .cardBox{
+@media screen and (max-width: 640px) {
+    .cardBox {
         width: 50%;
     }
 }
-@media (min-width:640px) and (max-width: 840px){
-    .cardBox{
+
+@media (min-width:640px) and (max-width: 840px) {
+    .cardBox {
         width: 33.33%;
     }
 }

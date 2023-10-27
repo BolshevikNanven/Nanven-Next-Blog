@@ -1,10 +1,8 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import Image from 'next/image';
-
 
 import { getSortedPostsData } from '../../utils/posts';
-
+import { LoadingImg } from '../../components/LoadingImg/loading-img';
 
 import style from './home.module.css';
 
@@ -34,7 +32,7 @@ export default function Home({ allPostsData }) {
                                             <div className={style.description}>{description}</div>
                                         </div>
                                     </div>
-                                    <img className={`${style.acticleImage} useDarkFilter`} src={image} />
+                                    <LoadingImg rectangle className={`${style.acticleImage} useDarkFilter`} src={image} />
                                 </a>
                             </Link>
                         </div>
