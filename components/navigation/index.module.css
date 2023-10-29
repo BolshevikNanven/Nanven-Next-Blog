@@ -1,0 +1,163 @@
+.menuBoxBlank {
+    padding: 8px;
+    width: 236px;
+    transition: transform .32s cubic-bezier(.86, 0, .07, 1), width .35s cubic-bezier(.86, 0, .07, 1);
+}
+
+.menuBox {
+    position: fixed;
+    padding: 8px 14px;
+    width: 236px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: transform .28s ease-in-out;
+}
+
+.menuBoxBlankClose {
+    transform: translateX(-240px);
+    width: 0;
+}
+
+.menuBoxClose {
+    transform: translateX(-240px);
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.menuBody {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 0;
+}
+
+.menuList {
+    padding: 0 16px;
+    margin: 2px 0;
+    height: 54px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    align-items: center;
+    transition: background-color 0.26s, transform 0.16s;
+    cursor: default;
+    color: var(--fontColorMain);
+    text-decoration: none;
+    user-select: none;
+}
+
+:global(.active) .menuList {
+    background-color: var(--headerColor) !important;
+}
+
+.menuList:hover {
+    background-color: var(--headerColor);
+}
+
+.menuListIcon {
+    margin-left: 4px;
+    height: 24px;
+    width: 24px;
+    font-size: 20px;
+    padding-bottom: 4px;
+}
+
+.menuFoldList {
+    padding: 0 16px;
+    height: 46px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    align-items: center;
+    transition: color 0.21s, transform 0.16s;
+    cursor: pointer;
+    color: var(--fontColorSub);
+    text-decoration: none;
+    user-select: none;
+}
+:global(.active)>.menuFoldList{
+    color: var(--fontColorMain);
+    font-weight: 600;
+}
+.menuFoldList:hover {
+    color: var(--fontColorMain);
+}
+
+.foldLinkContainer:global(.active) {
+    max-height: 600px;
+    padding-bottom: 12px;
+}
+
+.foldLinkContainer {
+    max-height: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding-bottom: 0;
+    transition: all .26s;
+}
+
+.menuFoldBtn:global(.active) {
+    transform: rotate(180deg);
+}
+
+.menuFoldBtn {
+    border: none;
+    background-color: transparent;
+    height: 32px;
+    width: 32px;
+    padding: 4px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.foldBefore {
+    display: block;
+    height: 100%;
+    width: 1px;
+    background-color: #cccccc;
+    margin: 0 9px 0 18px;
+}
+
+.menuListContent {
+    flex: 1;
+    margin-left: 16px;
+    font-size: 14px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.subheader {
+    user-select: none;
+    padding: 0 16px;
+    min-height: 48px;
+    color: #bdbdbd;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 48px;
+}
+
+@media screen and (max-width: 640px) {
+    .menuBox {
+        top: 88px;
+        width: 100vw;
+        height: calc(100vh);
+        z-index: 998;
+        background-color: var(--backgroundColor);
+        padding: 16px;
+    }
+
+    .menuBoxClose {
+        display: none;
+    }
+
+    .menuBoxBlank {
+        display: none;
+    }
+}

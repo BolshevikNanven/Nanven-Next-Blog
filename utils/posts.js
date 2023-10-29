@@ -6,26 +6,37 @@ import html from 'remark-html';
 
 
 const postsDirectory = path.join(process.cwd(), 'data/posts');
+const classification = getAllClassification();
 
 export async function getSortedPostsData() {
-  const fileNames = fs.readdirSync(postsDirectory);
 
-  const allPostsData = await Promise.all(fileNames.map(async (fileName) => {
-    const id = fileName.replace(/\.md$/, '');
+  let allPostsData = [];
+  Object.keys(classification).forEach(className => {
 
-    const fullPath = path.join(postsDirectory, fileName);
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
+    const classDirectory = path.join(postsDirectory, className + '$' + classification[className])
+    const fileNames = fs.readdirSync(classDirectory)
 
-    const matterResult = matter(fileContents);
+    fileNames.forEach(fileName => {
+      const id = fileName.replace(/\.md$/, '');
+
+      const fullPath = path.join(classDirectory, fileName);
+      const fileContents = fs.readFileSync(fullPath, 'utf8');
+
+      const matterResult = matter(fileContents);
 
 
-    return {
-      id,
-      ...matterResult.data,
-    };
+      allPostsData.push({
+        id,
+        classRoute: className,
+        classification: classification[className],
+        ...matterResult.data,
+      })
 
-  }));
+    })
 
+
+
+  });
 
   return allPostsData.sort(({ date: a }, { date: b }) => {
     if (a < b) {
@@ -42,19 +53,30 @@ export async function getSortedPostsData() {
 
 
 export function getAllPostIds() {
-  const fileNames = fs.readdirSync(postsDirectory);
+  let paths = [];
+  Object.keys(classification).forEach(className => {
+    const classDirectory = path.join(postsDirectory, className + '$' + classification[className])
+    console.log(classDirectory);
 
-  return fileNames.map((fileName) => {
-    return {
-      params: {
+    const fileNames = fs.readdirSync(classDirectory)
+
+    fileNames.forEach(fileName => {
+      paths.push({
+        classification: className,
         id: fileName.replace(/\.md$/, ''),
-      },
-    };
-  });
+      })
+    })
+  })
+
+
+  return paths;
+
 }
 
-export async function getPostData(id) {
-  const fullPath = path.join(postsDirectory, `${id}.md`);
+export async function getPostData(className, id) {
+  const fullPath = path.join(postsDirectory, className + '$' + classification[className], `${id}.md`);
+
+
   const fileContents = fs.readFileSync(fullPath, 'utf8');
 
   const matterResult = matter(fileContents);
@@ -66,9 +88,26 @@ export async function getPostData(id) {
 
   return {
     id,
-    defaultContent:matterResult.content,
+    defaultContent: matterResult.content,
     contentHtml,
     ...matterResult.data,
   };
+}
+
+export function getAllClassification() {
+  const fileNames = fs.readdirSync(postsDirectory);
+  const classification = {};
+
+  for (let fileName of fileNames) {
+    const splitName = fileName.split('$');
+    const name = splitName[0];
+    const label = splitName[1];
+
+    classification[name] = label;
+
+  }
+
+  return classification;
+
 }
 
