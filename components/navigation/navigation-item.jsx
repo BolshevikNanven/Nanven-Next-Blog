@@ -10,7 +10,9 @@ const NavigationItem = ({ route, extraMatch, foldLink, label, icon, onClick = ()
     const [foldState, setFoldState] = useState(false);
 
     const handleClickFold = (e) => {
+        e.preventDefault()
         e.stopPropagation()
+        e.nativeEvent.stopImmediatePropagation();
         setFoldState(!foldState);
     }
 
