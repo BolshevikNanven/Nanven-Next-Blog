@@ -3,6 +3,13 @@ import { Suspense, cache } from 'react'
 import { getSortedPostsData, getAllClassification } from '../../utils/posts';
 import HomeLayout from './client-layout';
 
+import style from '@/styles/home.module.css'
+
+import { LoadingImg } from '../../components/image/loading-img';
+
+import Link from 'next/link';
+
+
 export const metadata = {
   title: 'Nanven Blog',
   description: '分享一切 , share anything',
