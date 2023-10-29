@@ -1,11 +1,11 @@
 "use client"
 
-import Header from '@/components/header/header'
-import Navigation from '@/components/navigation/navigation'
-import ThemeProvider from '@/components/theme/theme-provider';
+import Header from '../components/header/header'
+import Navigation from '../components/navigation/navigation'
+import ThemeProvider from '../components/theme/theme-provider';
 
 import { useState, useEffect } from 'react';
-import { theme } from '@/data/themedata';
+import { theme } from '../data/themedata';
 
 
 export default function BaseLayout({ children, allClassification }) {
