@@ -11,6 +11,7 @@
     padding: 0;
     user-select: none;
     font-size: 26px;
+    color: var(--fontColorMain);
 }
 .homeContainer {
     display: flex;

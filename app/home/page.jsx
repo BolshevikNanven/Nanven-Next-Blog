@@ -3,7 +3,6 @@ import { Suspense, cache } from 'react'
 import { getSortedPostsData, getAllClassification } from '../../utils/posts';
 import HomeLayout from './client-layout';
 
-import { LoadingImg } from '../../components/image/loading-img';
 
 import Link from 'next/link';
 

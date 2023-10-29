@@ -63,6 +63,7 @@
     width: 24px;
     font-size: 20px;
     padding-bottom: 4px;
+    color: var(--fontColorMain);
 }
 
 .menuFoldList {
@@ -115,6 +116,7 @@
     font-size: 20px;
     cursor: pointer;
     transition: all .2s;
+    color: var(--fontColorMain);
 }
 
 .foldBefore {
