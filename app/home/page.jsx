@@ -3,8 +3,6 @@ import { Suspense, cache } from 'react'
 import { getSortedPostsData, getAllClassification } from '../../utils/posts';
 import HomeLayout from './client-layout';
 
-import style from '@/styles/home.module.css'
-
 import { LoadingImg } from '../../components/image/loading-img';
 
 import Link from 'next/link';
@@ -27,6 +25,31 @@ export default async function Home() {
   )
 
 }
+function HomeLayoutFallback({ allPostsData }) {
+  return (
+    <div>
+      <h2>全部文章</h2>
+      <div>
+        {allPostsData.map(({ id, classRoute, classification, title, description, image, date }) => (
+          <div key={id} >
+            <Link href={`/${classRoute}/${id}`}>
+              <div>
+                <div>
+                  <h2>{title}</h2>
+                  <span>{classification}</span>
+                </div>
+                <div>
+                  <div>{date}</div>
+                  <div>{description}</div>
+                </div>
+              </div>
+            </Link>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
 export const getStaticAllClassification = cache(async () => {
   const allClassification = getAllClassification()
 
@@ -40,30 +63,3 @@ export const getStaticSortedPostsData = cache(async () => {
 
 })
 
-function HomeLayoutFallback({ allPostsData }) {
-  return (
-    <div className={style.homeBase}>
-      <h2 className={style.homeTitle}>全部文章</h2>
-      <div className={style.homeContainer}>
-        {allPostsData.map(({ id, classRoute, classification, title, description, image, date }) => (
-          <div key={id} className={style.acticleContainer}>
-            <Link className={style.acticle} href={`/${classRoute}/${id}`}>
-              <div className={style.acticleHeader}>
-                <div className={style.titleContainer}>
-                  <h2 className={style.title}>{title}</h2>
-                  <span className={style.classification}>{classification}</span>
-                </div>
-                <div className={style.descriptionContainer}>
-                  <div className={style.date}>{date}</div>
-                  <div className={style.description}>{description}</div>
-                </div>
-              </div>
-              <LoadingImg rectangle className={`${style.acticleImage} useDarkFilter`} src={image} />
-
-            </Link>
-          </div>
-        ))}
-      </div>
-    </div>
-  )
-}

@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 
-export default function Friend() {
+export default async function Friend() {
     return (
         <div className={style.friendBox}>
             <Head>

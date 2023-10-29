@@ -1,4 +1,4 @@
-import { cache } from 'react'
+import { Suspense, cache } from 'react'
 
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
@@ -23,9 +23,14 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <BaseLayout allClassification={allClassification}>
-          {children}
-        </BaseLayout>
+        <div className='base'>
+          <Suspense fallback={<>layout</>}>
+            <BaseLayout allClassification={allClassification} />
+          </Suspense>
+          <div className='main'>
+            {children}
+          </div>
+        </div>
       </body>
     </html>
   )

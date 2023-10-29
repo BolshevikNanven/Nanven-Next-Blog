@@ -1,5 +1,5 @@
 
-import { cache } from 'react'
+import { Suspense, cache } from 'react'
 
 import { getAllPostIds, getPostData } from '@/utils/posts'
 import ArticleLayout from './client-layout';
@@ -20,9 +20,32 @@ export default async function Article({ params }) {
   const postData = await getStaticPostData(params);
 
   return (
-    <ArticleLayout postData={postData} />
+    <Suspense fallback={<ArticleLayoutFallback postData={postData} />}>
+      <ArticleLayout postData={postData} />
+    </Suspense>
+
   )
 
+}
+
+function ArticleLayoutFallback({ postData }) {
+  return (
+    <div>
+      <div>
+        <p>{postData.date}</p>
+        <h1>{postData.title}</h1>
+        <div>
+          <p>{postData.description}</p>
+        </div>
+        <div >
+          <img alt={postData.title} src={postData.image} />
+        </div>
+      </div>
+      <div >
+        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+      </div>
+    </div>
+  )
 }
 
 export async function generateStaticParams() {
@@ -36,3 +59,4 @@ export const getStaticPostData = cache(async (params) => {
 
   return postData
 })
+

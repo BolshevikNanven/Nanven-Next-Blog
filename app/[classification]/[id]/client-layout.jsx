@@ -36,7 +36,7 @@ export default function ArticleLayout({ postData }) {
                             </div>
                         </div>
                         <div className={style.image}>
-                            <img className='useDarkFilter' src={postData.image} />
+                            <img alt={postData.title} className='useDarkFilter' src={postData.image} />
                         </div>
                     </div>
                     <div className='articleBody'>

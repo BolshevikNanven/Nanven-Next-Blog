@@ -29,12 +29,7 @@ export default function BaseLayout({ children, allClassification }) {
                 isMenuOpen={isMenuOpen} switchMenuOpen={() => { switchMenuOpen(!isMenuOpen) }}
                 isDarkmode={isDarkmode} switchDarkmode={() => { switchDarkmode(!isDarkmode) }}
             />
-            <div className='base'>
-                <Navigation allClassification={allClassification} isMenuOpen={isMenuOpen} switchMenuOpen={() => { switchMenuOpen(!isMenuOpen) }} />
-                <div className='main'>
-                    {children}
-                </div>
-            </div>
+            <Navigation allClassification={allClassification} isMenuOpen={isMenuOpen} switchMenuOpen={() => { switchMenuOpen(!isMenuOpen) }} />
         </ThemeProvider>
     )
 }
