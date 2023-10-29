@@ -16,6 +16,15 @@ export const metadata = {
   description: '分享一切 , share anything',
 }
 
+function RootLayoutFallback() {
+  return (
+    <>
+      <div className='headerLayout'></div>
+      <div className='navigationLayout'></div>
+    </>
+  )
+}
+
 export default async function RootLayout({ children }) {
 
   const allClassification = await getStaticAllClassification();
@@ -24,7 +33,7 @@ export default async function RootLayout({ children }) {
     <html lang="en">
       <body>
         <div className='base'>
-          <Suspense fallback={<>layout</>}>
+          <Suspense fallback={<RootLayoutFallback />}>
             <BaseLayout allClassification={allClassification} />
           </Suspense>
           <div className='main'>

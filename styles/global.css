@@ -4,12 +4,14 @@
     font-weight: normal;
     font-style: normal;
 }
+
 @font-face {
     font-family: "Noto_Sans_SC";
     src: url(../public/NotoSansSC-VariableFont_wght.ttf) format('truetype');
     font-weight: bolder;
     font-style: normal;
 }
+
 @font-face {
     font-family: "Noto_Sans_SC";
     src: url(../public/NotoSansSC-VariableFont_wght.ttf) format('truetype');
@@ -23,6 +25,7 @@
     font-weight: normal;
     font-style: normal;
 }
+
 @font-face {
     font-family: "myRoboto";
     src: url(../public/roboto/Roboto-Black.ttf), format('truetype');
@@ -32,22 +35,44 @@
 
 
 
-html,body,div,p{
+html,
+body,
+div,
+p {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: "Noto_Sans_SC","myRoboto";
+    font-family: "Noto_Sans_SC", "myRoboto";
 }
-body{
+
+body {
     max-width: 100vw;
     overflow-x: hidden;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-.base{
+.headerLayout {
+    background-color: var(--headerColor);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 88px;
+}
+
+.navigationLayout {
+    background-color: var(--headerColor);
+    top: 102px;
+    left: 14px;
+    width: 208px;
+    height: 312px;
+    border-radius: 6px;
+}
+
+.base {
     transition: background-color .2s;
     background-color: var(--backgroundColor);
     margin-top: 88px;
@@ -56,7 +81,8 @@ a{
     flex-wrap: nowrap;
     min-height: 100vh;
 }
-.main{
+
+.main {
     flex: 1;
     display: flex;
     flex-direction: row;
@@ -68,24 +94,25 @@ a{
     width: 100%;
 }
 
-.lazyload-wrapper{
+.lazyload-wrapper {
     display: flex;
 }
-.lazyload-wrapper>img{
+
+.lazyload-wrapper>img {
     flex: 1;
 }
 
-.ActicleBody{
+.ActicleBody {
     margin-top: 16px;
     width: 100%;
 }
 
-.useDarkFilter{
+.useDarkFilter {
     filter: brightness(var(--useDarkFilter));
 }
 
-@media screen and (max-width: 640px){
-    .main{
+@media screen and (max-width: 640px) {
+    .main {
         padding-left: 20px;
         padding-right: 20px;
         margin: 0;
