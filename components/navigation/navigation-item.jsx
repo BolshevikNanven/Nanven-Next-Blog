@@ -5,7 +5,7 @@ import NavLink from './navlink';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
-const NavigationItem = ({ route, extraMatch, foldLink, label, icon, onClick = () => { }, outlink = false }) => {
+const NavigationItem = ({ route, exact, extraMatch, foldLink, label, icon, onClick = () => { }, outlink = false }) => {
 
     const [foldState, setFoldState] = useState(false);
 
@@ -19,7 +19,7 @@ const NavigationItem = ({ route, extraMatch, foldLink, label, icon, onClick = ()
     if (!outlink) {
         return (
             <>
-                <NavLink href={route} extraMatch={extraMatch || null}>
+                <NavLink href={route} exact={exact} extraMatch={extraMatch || null}>
                     <div className={style.menuList} onClick={onClick}>
                         <span className={style.menuListIcon}>
                             <FontAwesomeIcon icon={icon} fixedWidth />

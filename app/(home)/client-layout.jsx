@@ -5,13 +5,12 @@ import style from '@/styles/home.module.css'
 import { LoadingImg } from '../../components/image/loading-img';
 
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
 
 
-export default function HomeLayout({ allPostsData, allClassification }) {
 
-    const searchParams = useSearchParams();
-    const selectedClass = searchParams.get('class');
+export default function HomeLayout({ allPostsData, allClassification, searchParams }) {
+
+    const selectedClass = searchParams.class || null;
 
     if (selectedClass) {
         allPostsData = allPostsData.filter(post => post.classRoute === selectedClass);

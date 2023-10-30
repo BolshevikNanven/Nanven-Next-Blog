@@ -18,7 +18,7 @@ const Navigation = ({ isMenuOpen, switchMenuOpen, allClassification }) => {
 
     const getClassificationLink = () => {
         return Object.keys(allClassification).map(className => {
-            return { param: className, route: `/home?class=${className}`, label: allClassification[className] }
+            return { param: className, route: `/?class=${className}`, label: allClassification[className] }
         })
     }
 
@@ -30,11 +30,12 @@ const Navigation = ({ isMenuOpen, switchMenuOpen, allClassification }) => {
                     <div className={style.menuBody}>
                         <NavigationItem
                             onClick={handleClickMenu}
-                            route='/home'
+                            route='/'
                             extraMatch={Object.keys(allClassification).map(className => ('/' + className))}
                             icon={faParagraph}
                             label='文章'
                             foldLink={getClassificationLink()}
+                            exact
                         />
                         <NavigationItem
                             onClick={handleClickMenu}

@@ -3,7 +3,7 @@
 import style from './/index.module.css'
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faReply,faMoon,faSun } from '@fortawesome/free-solid-svg-icons';
+import { faReply, faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 
 import { usePathname } from 'next/navigation';
 
@@ -15,7 +15,7 @@ const Header = (props) => {
     const { isMenuOpen, switchMenuOpen } = props;
     const { isDarkmode, switchDarkmode } = props;
 
-    const Router = usePathname();
+    const pathname = usePathname();
 
     const menustate = isMenuOpen ? `${style.menubtn} ${style.menuOpen}` : style.menubtn;
     const logodarkstate = isDarkmode ? `${style.logo} ${style.logoWhite}` : style.logo;
@@ -31,8 +31,8 @@ const Header = (props) => {
                 </button>
                 <div className={logodarkstate}></div>
                 <div className={style.headerSpace}></div>
-                <Link href='/home'>
-                    <div className={`${style.headerBtn} ${Router.pathname == '/home' ? `${style.none}` : ''}`}>
+                <Link href='/'>
+                    <div className={`${style.headerBtn} ${pathname === '/' && style.none}`}>
                         <FontAwesomeIcon icon={faReply} fixedWidth />
                     </div>
                 </Link>

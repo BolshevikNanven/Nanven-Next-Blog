@@ -12,15 +12,13 @@ export const metadata = {
   description: '分享一切 , share anything',
 }
 
-export default async function Home() {
+export default async function Home({ searchParams }) {
 
   const allPostsData = await getStaticSortedPostsData();
   const allClassification = await getStaticAllClassification();
 
   return (
-    <Suspense fallback={<HomeLayoutFallback allPostsData={allPostsData} />}>
-      <HomeLayout allPostsData={allPostsData} allClassification={allClassification} />
-    </Suspense>
+    <HomeLayout searchParams={searchParams} allPostsData={allPostsData} allClassification={allClassification} />
   )
 
 }
