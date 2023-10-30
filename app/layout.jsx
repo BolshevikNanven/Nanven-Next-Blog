@@ -7,17 +7,11 @@ config.autoAddCss = false;
 import '@/styles/global.css';
 import '@/styles/sspai.css';
 
-import { Inter } from 'next/font/google'
 
 import BaseLayout from '@/app/client-layout';
 
 import { getAllClassification } from '@/utils/posts';
 
-
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-})
 
 export const metadata = {
   title: 'Nanven Blog',
@@ -39,7 +33,7 @@ export default async function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <div className='base'>
           <Suspense fallback={<RootLayoutFallback />}>
             <BaseLayout allClassification={allClassification} />
