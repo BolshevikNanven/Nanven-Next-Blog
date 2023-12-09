@@ -76,10 +76,10 @@ a {
 .base {
     transition: background-color .2s;
     background-color: var(--backgroundColor);
-    margin-top: 88px;
+    margin-top: 80px;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     min-height: 100vh;
 }
 

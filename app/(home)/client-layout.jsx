@@ -2,23 +2,56 @@
 
 import style from '@/styles/home.module.css'
 
-import { LoadingImg } from '../../components/image/loading-img';
+import { LoadingImg } from '../../components/image/loading-img'
 
-import Link from 'next/link';
+import Link from 'next/link'
+import { useCallback, useEffect, useRef } from 'react';
 
-
+var sTop = 0
+var ticking = false
 
 export default function HomeLayout({ allPostsData, allClassification, searchParams }) {
 
     const selectedClass = searchParams.class || null;
+    const headRef = useRef()
 
     if (selectedClass) {
         allPostsData = allPostsData.filter(post => post.classRoute === selectedClass);
     }
 
+
+    useEffect(() => {
+        const scroll = () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    if (window.scrollY > sTop && window.scrollY > 180) {
+                        if (headRef.current.style.opacity !== '0') {
+                            headRef.current.style.opacity = '0'
+                        }
+                    } else {
+                        if (headRef.current.style.opacity !== '1') {
+                            headRef.current.style.opacity = '1'
+                        }
+                    }
+                    sTop = window.scrollY
+
+                    ticking = false
+                })
+                ticking = true
+            }
+        }
+
+        document.addEventListener('scroll', scroll)
+
+        return () => removeEventListener('scroll', scroll)
+
+    }, [])
+
     return (
         <div className={style.homeBase}>
-            <h2 className={style.homeTitle}>{allClassification[selectedClass] || '全部文章'}</h2>
+            <div ref={headRef} className={style.homeTitleContainer}>
+                <h2 className={style.homeTitle}>{allClassification[selectedClass] || '全部文章'}</h2>
+            </div>
             <div className={style.homeContainer}>
                 {allPostsData.map(({ id, classRoute, classification, title, description, image, date }) => (
                     <div key={id} className={style.acticleContainer}>
@@ -34,7 +67,6 @@ export default function HomeLayout({ allPostsData, allClassification, searchPara
                                 </div>
                             </div>
                             <LoadingImg rectangle className={`${style.acticleImage} useDarkFilter`} src={image} />
-
                         </Link>
                     </div>
                 ))}

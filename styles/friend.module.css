@@ -26,7 +26,11 @@
     align-items: center;
     margin-bottom: 18px;
     border-radius: 16px;
-    border: 2px solid #cccccc;
+    border: 2px solid var(--divider);
+    transition: all .2s ease-in-out;
+}
+.cardBox:hover{
+    border-radius: 26px;
 }
 .cardBox:hover .icon{
     transform: translateX(5px);
@@ -53,11 +57,11 @@
     overflow: hidden;
     text-overflow: ellipsis;
     font-weight: 600;
-    color: #212121;
+    color: var(--secondary);
     font-size: 17px;
 }
 .icon{
-    color: var(--fontColorSub);
+    color: var(--subSecondary);
     min-height: 24px;
     min-width: 24px;
     font-size: 18px;
@@ -68,7 +72,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 13px;
-    color: #636765;
+    color: var(--subSecondary);
 }
 
 @media screen and (max-width: 840px) {

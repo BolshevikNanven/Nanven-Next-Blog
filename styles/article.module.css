@@ -17,7 +17,7 @@
 }
 
 .title {
-    color: var(--fontColorMain);
+    color: var(--secondary);
     font-size: 74px;
     line-height: 78px;
     text-align: left;
@@ -28,7 +28,7 @@
 
 .date {
     font-size: 18px;
-    color: var(--fontColorSub);
+    color: var(--subSecondary);
     padding-left: 6px;
 }
 
@@ -42,7 +42,7 @@
 .description {
     font-size: 36px;
     line-height: 42px;
-    color: var(--fontColorMain);
+    color: var(--secondary);
     font-weight: 300;
     flex-basis: 70%;
 }
@@ -59,8 +59,8 @@
     align-items: center;
     gap: 4px;
     outline: 0;
-    background-color: var(--btnColor);
-    color: var(--fontColorMain);
+    background-color: var(--primaryContainer);
+    color: var(--secondary);
     border-radius: 99px;
     margin-bottom: 16px;
     border: 0;
@@ -69,7 +69,7 @@
     transition: all .1s;
 }
 .actionBtn:hover{
-    background-color: var(--btnHoverColor);
+    background-color: var(--secondaryContainer);
 }
 
 .image{
@@ -93,7 +93,7 @@
 
 
 .navBar {
-    top: 116px;
+    top: 108px;
     align-self: flex-start;
     position: sticky;
     padding: 16px;
@@ -108,14 +108,14 @@
     top: -10px;
     left: 20px;
     font-size: 14.5px;
-    color: var(--fontColorMain);
+    color: var(--secondary);
     font-weight: 600;
 }
 
 .navBar>:global(.title-anchor) {
     display: block;
     box-sizing: border-box;
-    color: var(--fontColorSub);
+    color: var(--subSecondary);
     margin-top: 6px;
     cursor: pointer;
     font-size: 14px;
@@ -129,12 +129,12 @@
 }
 
 .navBar>:global(.title-anchor):hover {
-    color: var(--fontColorMain);
+    color: var(--secondary);
 }
 
 .navBar>:global(.title-anchor.active) {
-    background-color: var(--brandBackgroundColor);
-    color: #0078d4;
+    background-color: var(--primaryContainer);
+    color: var(--primary);
     font-weight: 600;
 }
 
@@ -145,6 +145,12 @@
 }
 
 @media screen and (max-width: 640px) {
+    .title {
+        font-size: 56px;
+    }
+    .description {
+        font-size: 26px;
+    }
     .navBar {
         display: none;
     }

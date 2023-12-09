@@ -1,6 +1,6 @@
 .imgSkeleton {
     width: 100%;
-    background-color: var(--headerColor);
+    background-color: var(--primaryContainer);
     animation-name: skeleton;
     animation-duration: 1.9s;
     animation-iteration-count: infinite;
