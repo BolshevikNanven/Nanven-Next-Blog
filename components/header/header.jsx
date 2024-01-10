@@ -8,12 +8,11 @@ import { faReply, faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { usePathname } from 'next/navigation';
 
 import React from 'react'
+import Search from '../search/search';
 
 
-const Header = (props) => {
+const Header = ({ isMenuOpen, switchMenuOpen, isDarkmode, switchDarkmode, allPostsData }) => {
 
-    const { isMenuOpen, switchMenuOpen } = props;
-    const { isDarkmode, switchDarkmode } = props;
 
     const pathname = usePathname();
 
@@ -31,6 +30,7 @@ const Header = (props) => {
                 </button>
                 <div className={logodarkstate}></div>
                 <div className={style.headerSpace}></div>
+                <Search allPostsData={allPostsData} />
                 <Link href='/'>
                     <div className={`${style.headerBtn} ${pathname === '/' && style.none}`}>
                         <FontAwesomeIcon icon={faReply} fixedWidth />

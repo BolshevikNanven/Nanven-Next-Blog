@@ -5,7 +5,7 @@
     width: 100%;
     background-color: var(--backgroundColor);
     backdrop-filter: blur(4px);
-    z-index: 999;
+    z-index: 9999;
     transition: background-color 0.16s linear;
 }
 .Header{
@@ -13,7 +13,12 @@
     margin:12px 0;
     min-height: 56px;
     display: flex;
+    flex-direction: row;
     align-items: center;
+    width: 100%;
+}
+.Header>*{
+    flex-shrink: 0;
 }
 .logo{
     display: block;
@@ -133,9 +138,11 @@
     .logo{
         background: url(../../public/nanven-small.png) no-repeat;
         background-size: contain;
+        width: 28px;
     }
     .logo-white{
         background: url(../../public/nanven-small-white.png) no-repeat;
         background-size: contain;
+        width: 28px;
     }
 }

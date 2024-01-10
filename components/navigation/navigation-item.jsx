@@ -7,7 +7,7 @@ import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
 const NavigationItem = ({ route, exact, extraMatch, foldLink, label, icon, onClick = () => { }, outlink = false }) => {
 
-    const [foldState, setFoldState] = useState(false);
+    const [foldState, setFoldState] = useState(true);
 
     const handleClickFold = (e) => {
         e.preventDefault()

@@ -5,7 +5,7 @@ import style from '@/styles/home.module.css'
 import { LoadingImg } from '../../components/image/loading-img'
 
 import Link from 'next/link'
-import { useCallback, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 var sTop = 0
 var ticking = false
@@ -21,8 +21,10 @@ export default function HomeLayout({ allPostsData, allClassification, searchPara
 
 
     useEffect(() => {
+        sTop = 0
+        ticking = false
         const scroll = () => {
-            if (!ticking) {
+            if (!ticking && headRef.current) {
                 window.requestAnimationFrame(() => {
                     if (window.scrollY > sTop && window.scrollY > 180) {
                         if (headRef.current.style.opacity !== '0') {
@@ -45,7 +47,7 @@ export default function HomeLayout({ allPostsData, allClassification, searchPara
 
         return () => removeEventListener('scroll', scroll)
 
-    }, [])
+    }, [headRef])
 
     return (
         <div className={style.homeBase}>
