@@ -57,9 +57,9 @@
     top: 48px;
     left: 0;
     width: 100%;
-    border-radius: 14px 14px 24px 24px;
+    border-radius: 12px 12px 24px 24px;
     background-color: var(--primaryContainer);
-    box-shadow: 0 .1px 1.8px .1px var(--subSecondary);
+    box-shadow: 0 .2px 1.8px .5px rgb(217, 206, 201);
     overflow-x: hidden;
     overflow-y: auto;
     max-height: 40vh;
@@ -89,13 +89,11 @@
 
 @media screen and (max-width: 540px) {
     .searchBox:focus-within {
-        flex: 4;
-    }
-    .searchContainer {
         position: fixed;
-        top: 64px;
-        left: 1vw;
-        width: 98vw;
+        top: 16px;
+        left: 62px;
+        min-width: calc(100vw - 84px);
+        max-width: calc(100vw - 84px);
     }
 }
 @media screen and (min-width: 540px) {
