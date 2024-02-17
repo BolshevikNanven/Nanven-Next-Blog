@@ -112,7 +112,7 @@ a {
     filter: brightness(var(--useDarkFilter));
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 840px) {
     .main {
         padding-left: 20px;
         padding-right: 20px;
