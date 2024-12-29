@@ -1,6 +1,5 @@
 import Head from 'next/head';
 
-
 import {friends} from '@/data/friendsdata.config'
 import style from '@/styles/friend.module.css'
 

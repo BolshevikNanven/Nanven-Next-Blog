@@ -12,23 +12,14 @@ import { faShare, faHeart } from '@fortawesome/free-solid-svg-icons'
 import { Marked } from 'marked'
 import { markedHighlight } from 'marked-highlight'
 
-const marked = new Marked(
-  markedHighlight({
-    langPrefix: 'hljs language-',
-    highlight(code, lang) {
-      const language = hljs.getLanguage(lang) ? lang : 'plaintext'
-      return hljs.highlight(code, { language }).value
-    },
-  }),
-)
 
 import { getAllPostIds, getPostData } from '@/utils/posts'
 import NavBar from './nav-bar'
 
 
 export async function generateMetadata({ params, searchParams }, parent) {
-
-  const postData = getStaticPostData(params);
+  const { classification, id } = await params;
+  const postData = getStaticPostData({ classification, id });
 
   return {
     title: postData.title + '| Nanven Blog',
@@ -37,8 +28,18 @@ export async function generateMetadata({ params, searchParams }, parent) {
 }
 
 export default async function Article({ params }) {
+  const marked = new Marked(
+    markedHighlight({
+      langPrefix: 'hljs language-',
+      highlight(code, lang) {
+        console.log(lang);
+        const language = hljs.getLanguage(lang) ? lang : 'plaintext'
+        return hljs.highlight(code, { language }).value
+      },
+    }),
+  )
 
-  const postData = getStaticPostData(params);
+  const postData = getStaticPostData(await params);
 
   return <>
     <div className={style.mainBox}>
@@ -58,7 +59,7 @@ export default async function Article({ params }) {
           </div>
         </div>
         <div className='articleBody'>
-          <div dangerouslySetInnerHTML={{ __html: marked.parse(postData.content) }} />
+          <div className='markdown-body' dangerouslySetInnerHTML={{ __html: marked.parse(postData.content) }} />
         </div>
       </div>
     </div>

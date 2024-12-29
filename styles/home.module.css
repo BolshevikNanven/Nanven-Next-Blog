@@ -18,7 +18,7 @@
     background-color: var(--md-sys-color-surface);
     border-radius: 0 0 52px 52px;
     padding-bottom: 0;
-    transition: all .16s ease-in-out;
+    transition: all .2s;
 }
 
 .homeTitle {
@@ -32,7 +32,7 @@
     background-color: var(--md-sys-color-secondary-container);
     margin-top: 4px;
     margin-bottom: 4px;
-    transition: all .22s ease-in-out;
+    transition: box-shadow .22s ease-in-out;
 }
 
 .homeTitle:hover {
@@ -73,7 +73,7 @@
 }
 
 .acticleContainer:nth-child(1) .acticleHeader {
-    flex-basis: 32%;
+    flex-basis: 40%;
 }
 
 .acticleContainer:nth-child(1) .acticleImage {
@@ -82,7 +82,7 @@
 }
 
 .acticleContainer:nth-child(1) .title {
-    font-size: 56px;
+    font-size: 52px;
     line-height: 64px;
 }
 

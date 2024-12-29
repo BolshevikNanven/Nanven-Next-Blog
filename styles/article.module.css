@@ -126,8 +126,8 @@
     cursor: pointer;
     font-size: 14px;
     padding: 9px 14px;
-    border-top-left-radius: 14px;
-    border-bottom-left-radius: 14px;
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
     font-weight: 400;
     line-height: 1.6;
     transition: color .14s;

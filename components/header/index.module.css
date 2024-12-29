@@ -6,7 +6,7 @@
     background-color: var(--md-sys-color-surface);
     backdrop-filter: blur(4px);
     z-index: 9999;
-    transition: background-color 0.16s linear;
+    transition: background-color .2s;
 }
 
 .Header {

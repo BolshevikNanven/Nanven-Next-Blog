@@ -173,7 +173,7 @@
 	margin-top: 20px;
 	margin-bottom: 20px;
 	border: 0;
-	border-top: 1px solid #eee;
+	border-top: 1px solid var(--md-sys-color-outline-variant);
 }
 .articleBody ol p, .articleBody ul p {
 	margin-bottom: 0px;

@@ -53,7 +53,7 @@
     width: 100%;
     border-radius: 12px 12px 24px 24px;
     background-color: var(--md-sys-color-surface-container-high);
-    box-shadow: 0 .2px 1.8px .5px rgb(217, 206, 201);
+    box-shadow: 0 1.6px 4.8px 0.4px var(--md-sys-color-outline);
     overflow-x: hidden;
     overflow-y: auto;
     max-height: 40vh;
@@ -72,13 +72,12 @@
     background-color: var(--md-sys-color-secondary-container);
 }
 .searchTitle{
-    color: var(--md-sys-color-on-secondary-container);
-    font-size: 14px;
-    font-weight: 600;
+    color: var(--md-sys-color-on-surface);
+    font-size: 15px;
 }
 .searchDescription{
     font-size: 12px;
-    color: var(--md-sys-color-outline);
+    color: var(--md-sys-color-on-surface-variant);
 }
 
 @media screen and (max-width: 540px) {

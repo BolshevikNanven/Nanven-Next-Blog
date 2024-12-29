@@ -3,17 +3,14 @@ import { useEffect } from "react"
 export default function ThemeProvider({ theme, children }) {
 
     useEffect(() => {
-        // const styleLists= Object.keys(theme).map(key => {
-        //     return { name: `--${key}`, value: theme[key] }
-        // })
-
-        // styleLists.forEach(style => document.body.style.setProperty(style.name, style.value));
-        document.body.classList.value = theme + '-theme'
+        let classList = [theme + '-theme'];
+        document.body.classList.forEach(className => {
+            if (!className.endsWith('-theme')) {
+                classList.push(className)
+            }
+        })
+        document.body.classList = classList
     }, [theme])
 
-    return (
-        <>
-            {children}
-        </>
-    )
+    return children
 }

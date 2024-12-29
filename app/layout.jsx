@@ -1,12 +1,11 @@
 import { Suspense, cache } from 'react'
 
-import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
 
+import "@fortawesome/fontawesome-svg-core/styles.css";
 import '@/styles/global.css';
-import '@/styles/sspai.css';
-
+import '@/styles/sspai.css'
 
 import BaseLayout from '@/app/client-layout';
 
