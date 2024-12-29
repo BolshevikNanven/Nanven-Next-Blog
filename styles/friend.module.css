@@ -26,13 +26,15 @@
     align-items: center;
     margin-bottom: 18px;
     border-radius: 16px;
-    border: 2px solid var(--divider);
+    border: 2px solid var(--md-sys-color-outline-variant);
     transition: all .2s ease-in-out;
 }
-.cardBox:hover{
+
+.cardBox:hover {
     border-radius: 26px;
 }
-.cardBox:hover .icon{
+
+.cardBox:hover .icon {
     transform: translateX(5px);
 }
 
@@ -42,7 +44,8 @@
     height: 100%;
     border-radius: 6px;
 }
-.avaterContainer{
+
+.avaterContainer {
     width: 52px;
     height: 52px;
     margin-right: 8px;
@@ -57,11 +60,12 @@
     overflow: hidden;
     text-overflow: ellipsis;
     font-weight: 600;
-    color: var(--secondary);
+    color: var(--md-sys-color-on-surface);
     font-size: 17px;
 }
-.icon{
-    color: var(--subSecondary);
+
+.icon {
+    color: var(--md-sys-color-outline);
     min-height: 24px;
     min-width: 24px;
     font-size: 18px;
@@ -72,14 +76,15 @@
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 13px;
-    color: var(--subSecondary);
+    color: var(--md-sys-color-outline);
 }
 
 @media screen and (max-width: 840px) {
     .cardBox {
         padding: 16px 16px;
     }
-    .friendBox{
-        padding: 0 ;
+
+    .friendBox {
+        padding: 0;
     }
 }

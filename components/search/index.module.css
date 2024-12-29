@@ -10,17 +10,16 @@
     flex-shrink: 1;
     align-items: center;
     border-radius: 24px;
-    color: var(--secondary);
+    color: var(--md-sys-color-on-surface);
     height: 48px;
-    background-color: var(--secondaryContainer);
+    background-color: var(--md-sys-color-surface-container-high);
     transition: background-color .1s linear;
 }
 
 
 .searchBox:focus-within {
-    background-color: var(--primaryContainer);
     border-radius: 24px 24px 14px 14px;
-    max-width: 298px;
+    max-width: 360px;
 }
 
 .searchBox:focus-within>.searchContainer {
@@ -35,18 +34,13 @@
     min-width: 0;
     border: none;
     background: transparent;
-    color: var(--secondary);
+    color: var(--md-sys-color-on-secondary-container);
     outline: 0;
-    border-bottom: 3px solid var(--secondary);
-}
-
-.searchInput:focus,
-.searchInput:valid {
-    border-bottom: 3px solid var(--primary);
+    border-bottom: 3px solid var(--md-sys-color-on-secondary-container);
 }
 
 .searchBox>svg {
-    color: var(--secondary);
+    color: var(--md-sys-color-on-secondary-container);
 }
 
 .searchContainer {
@@ -58,7 +52,7 @@
     left: 0;
     width: 100%;
     border-radius: 12px 12px 24px 24px;
-    background-color: var(--primaryContainer);
+    background-color: var(--md-sys-color-surface-container-high);
     box-shadow: 0 .2px 1.8px .5px rgb(217, 206, 201);
     overflow-x: hidden;
     overflow-y: auto;
@@ -68,23 +62,23 @@
     padding: 16px;
 }
 .searchItem{
-    padding: 10px 14px;
+    padding: 12px 16px;
     display: flex;
     flex-direction: column;
     gap: 2px;
     cursor: default;
 }
 .searchItem:hover{
-    background-color: var(--secondaryContainer);
+    background-color: var(--md-sys-color-secondary-container);
 }
 .searchTitle{
-    color: var(--secondary);
+    color: var(--md-sys-color-on-secondary-container);
     font-size: 14px;
     font-weight: 600;
 }
 .searchDescription{
     font-size: 12px;
-    color: var(--subSecondary);
+    color: var(--md-sys-color-outline);
 }
 
 @media screen and (max-width: 540px) {

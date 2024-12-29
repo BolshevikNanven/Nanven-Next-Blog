@@ -44,17 +44,17 @@
     align-items: center;
     transition: background-color 0.26s, transform 0.16s;
     cursor: default;
-    color: var(--secondary);
+    color: var(--md-sys-color-on-secondary-container);
     text-decoration: none;
     user-select: none;
 }
 
 :global(.active) .menuList {
-    background-color: var(--secondaryContainer) !important;
+    background-color: var(--md-sys-color-secondary-container) !important;
 }
 
 .menuList:hover {
-    background-color: var(--primaryContainer);
+    background-color: var(--md-sys-color-secondary-container);
 }
 
 .menuListIcon {
@@ -63,7 +63,7 @@
     width: 24px;
     font-size: 20px;
     padding-bottom: 4px;
-    color: var(--secondary);
+    color: var(--md-sys-color-on-surface);
 }
 
 .menuFoldList {
@@ -76,16 +76,12 @@
     align-items: center;
     transition: color 0.21s, transform 0.16s;
     cursor: pointer;
-    color: var(--secondary);
+    color: var(--md-sys-color-on-surface);
     text-decoration: none;
     user-select: none;
 }
 :global(.active)>.menuFoldList{
-    color: var(--secondary);
     font-weight: 600;
-}
-.menuFoldList:hover {
-    color: var(--secondary);
 }
 
 .foldLinkContainer:global(.active) {
@@ -116,14 +112,14 @@
     font-size: 20px;
     cursor: pointer;
     transition: all .2s;
-    color: var(--secondary);
+    color: var(--md-sys-color-on-secondary-container);
 }
 
 .foldBefore {
     display: block;
     height: 100%;
     width: 1px;
-    background-color: var(--divider);
+    background-color: var(--md-sys-color-outline-variant);
     margin: 0 9px 0 18px;
 }
 
@@ -139,7 +135,7 @@
     user-select: none;
     padding: 0 16px;
     min-height: 48px;
-    color: var(--subSecondary);
+    color: var(--md-sys-color-on-surface-variant);
     font-weight: 500;
     font-size: 14px;
     line-height: 48px;
@@ -151,7 +147,7 @@
         width: 100vw;
         height: calc(100vh);
         z-index: 999;
-        background-color: var(--backgroundColor);
+        background-color: var(--md-sys-color-surface);
         padding: 16px;
     }
 

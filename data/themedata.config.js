@@ -2,7 +2,7 @@ export const theme = {
     light: {
         primary: 'rgb(137,80,37)',
         primaryContainer: 'rgb(249,238,234)',
-        backgroundColor: 'rgb(250,247,245)',
+        backgroundColor: 'rgb(250,249,247)',
         secondary: 'rgb(30,29,24)',
         secondaryContainer: 'rgb(242,229,221)',
         subSecondary:'rgb(83,70,62)',

@@ -1,8 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { remark } from 'remark';
-import html from 'remark-html';
 
 
 const postsDirectory = path.join(process.cwd(), 'data', 'posts');
@@ -73,7 +71,7 @@ export function getAllPostIds() {
 
 }
 
-export async function getPostData(className, id) {
+export function getPostData(className, id) {
   const fullPath = path.join(postsDirectory, className + '$' + classification[className], `${id}.md`);
 
 
@@ -81,16 +79,10 @@ export async function getPostData(className, id) {
 
   const matterResult = matter(fileContents);
 
-  const processedContent = await remark()
-    .use(html)
-    .process(matterResult.content);
-  const contentHtml = processedContent.toString();
-
   return {
     id,
-    defaultContent: matterResult.content,
-    contentHtml,
     ...matterResult.data,
+    content: matterResult.content
   };
 }
 

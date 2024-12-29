@@ -1,26 +1,29 @@
-.HeaderBox{
+.HeaderBox {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: var(--backgroundColor);
+    background-color: var(--md-sys-color-surface);
     backdrop-filter: blur(4px);
     z-index: 9999;
     transition: background-color 0.16s linear;
 }
-.Header{
+
+.Header {
     padding: 0 16px;
-    margin:12px 0;
+    margin: 12px 0;
     min-height: 56px;
     display: flex;
     flex-direction: row;
     align-items: center;
     width: 100%;
 }
-.Header>*{
+
+.Header>* {
     flex-shrink: 0;
 }
-.logo{
+
+.logo {
     display: block;
     height: 28px;
     width: 117px;
@@ -28,17 +31,19 @@
     background-size: contain;
     margin-left: 0;
 }
-.logoWhite{
+
+.logoWhite {
     background: url(../../public/nanven-white.svg) no-repeat;
     background-size: contain;
 }
-.none{
+
+.none {
     display: none !important;
 }
 
 
 
-.menubtn{
+.menubtn {
     background: transparent;
     height: 28px;
     margin: 0 24px 0 8px;
@@ -48,69 +53,78 @@
     outline: none;
     border: none;
 }
-.menuOpen .burgerTop,.menuOpen .burgerBot{
+
+.menuOpen .burgerTop,
+.menuOpen .burgerBot {
     top: 12.5px !important;
     -webkit-transform: rotate(135deg);
     transform: rotate(135deg);
     width: 28px;
 }
-.menuOpen .burgerMid{
+
+.menuOpen .burgerMid {
     top: 12.5px !important;
     -webkit-transform: rotate(225deg);
     transform: rotate(225deg);
     width: 28px;
 }
-.burgerTop{
-    background-color: var(--secondary);
+
+.burgerTop {
+    background-color: var(--md-sys-color-on-secondary-container);
     height: 3px;
     position: absolute;
     width: 28px;
 
-    -webkit-transition: top .1s,width .1s,-webkit-transform .1s linear .1s;
-    transition: top .1s,width .1s,-webkit-transform .1s linear .1s;
-    transition: top .1s,width .1s,transform .1s linear .1s;
-    transition: top .1s,width .1s,transform .1s linear .1s,-webkit-transform .1s linear .1s;
+    -webkit-transition: top .1s, width .1s, -webkit-transform .1s linear .1s;
+    transition: top .1s, width .1s, -webkit-transform .1s linear .1s;
+    transition: top .1s, width .1s, transform .1s linear .1s;
+    transition: top .1s, width .1s, transform .1s linear .1s, -webkit-transform .1s linear .1s;
     top: 3px;
     width: 16px;
 }
-.burgerMid{
-    background-color: var(--secondary);
+
+.burgerMid {
+    background-color: var(--md-sys-color-on-secondary-container);
     height: 3px;
     position: absolute;
     width: 28px;
 
-    -webkit-transition: top .1s,width .1s,-webkit-transform .1s linear .1s;
-    transition: top .1s,width .1s,-webkit-transform .1s linear .1s;
-    transition: top .1s,width .1s,transform .1s linear .1s;
-    transition: top .1s,width .1s,transform .1s linear .1s,-webkit-transform .1s linear .1s;
+    -webkit-transition: top .1s, width .1s, -webkit-transform .1s linear .1s;
+    transition: top .1s, width .1s, -webkit-transform .1s linear .1s;
+    transition: top .1s, width .1s, transform .1s linear .1s;
+    transition: top .1s, width .1s, transform .1s linear .1s, -webkit-transform .1s linear .1s;
     top: 12.5px;
 }
-.burgerBot{
-    background-color: var(--secondary);
+
+.burgerBot {
+    background-color: var(--md-sys-color-on-secondary-container);
     height: 3px;
     position: absolute;
     width: 28px;
 
-    -webkit-transition: top .1s,width .1s,-webkit-transform .1s linear .1s;
-    transition: top .1s,width .1s,-webkit-transform .1s linear .1s;
-    transition: top .1s,width .1s,transform .1s linear .1s;
-    transition: top .1s,width .1s,transform .1s linear .1s,-webkit-transform .1s linear .1s;
+    -webkit-transition: top .1s, width .1s, -webkit-transform .1s linear .1s;
+    transition: top .1s, width .1s, -webkit-transform .1s linear .1s;
+    transition: top .1s, width .1s, transform .1s linear .1s;
+    transition: top .1s, width .1s, transform .1s linear .1s, -webkit-transform .1s linear .1s;
     top: 22px;
     width: 23px;
 }
-.headerSpace{
+
+.headerSpace {
     flex: 1;
     margin: 0 1rem;
 }
-.cutbar{
+
+.cutbar {
     height: 28px;
     width: 1px;
-    background-color: var(--secondaryContainer);
+    background-color: var(--md-sys-color-secondary-container);
     margin: 0 6px;
 }
-.headerBtn{
+
+.headerBtn {
     display: flex;
-    color: var(--secondary);
+    color: var(--md-sys-color-on-surface);
     background: transparent;
     height: 48px;
     width: 48px;
@@ -124,23 +138,26 @@
     align-items: center;
     justify-content: center;
 }
-.headerBtn:hover{
-    background-color: var(--secondaryContainer);
+
+.headerBtn:hover {
+    background-color: var(--md-sys-color-secondary-container);
 }
-.headerBtn:active{
+
+.headerBtn:active {
     transform: scale(0.95);
 }
 
 
 
 
-@media screen and (max-width: 540px){
-    .logo{
+@media screen and (max-width: 540px) {
+    .logo {
         background: url(../../public/nanven-small.png) no-repeat;
         background-size: contain;
         width: 28px;
     }
-    .logo-white{
+
+    .logo-white {
         background: url(../../public/nanven-small-white.png) no-repeat;
         background-size: contain;
         width: 28px;

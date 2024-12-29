@@ -5,10 +5,9 @@ import Navigation from '../components/navigation/navigation'
 import ThemeProvider from '../components/theme/theme-provider';
 
 import { useState, useEffect } from 'react';
-import { theme } from '../data/themedata.config';
 
 
-export default function BaseLayout({ children, allClassification,allPostsData }) {
+export default function BaseLayout({ allClassification, allPostsData }) {
 
     const [isMenuOpen, switchMenuOpen] = useState(false);
     const [isDarkmode, switchDarkmode] = useState(false);
@@ -24,7 +23,7 @@ export default function BaseLayout({ children, allClassification,allPostsData })
     }, [])
 
     return (
-        <ThemeProvider theme={isDarkmode ? theme.dark : theme.light}>
+        <ThemeProvider theme={isDarkmode ? 'dark' : 'light'}>
             <Header
                 isMenuOpen={isMenuOpen} switchMenuOpen={() => { switchMenuOpen(!isMenuOpen) }}
                 isDarkmode={isDarkmode} switchDarkmode={() => { switchDarkmode(!isDarkmode) }}
