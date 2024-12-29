@@ -14,11 +14,13 @@ export const metadata = {
 
 export default async function Home({ searchParams }) {
 
-  const allPostsData = await getStaticSortedPostsData();
-  const allClassification = await getStaticAllClassification();
+  const allPostsData = getStaticSortedPostsData();
+  const allClassification = getStaticAllClassification();
 
   return (
-    <HomeLayout searchParams={searchParams} allPostsData={allPostsData} allClassification={allClassification} />
+    <Suspense fallback={<HomeLayoutFallback allPostsData={allPostsData} />}>
+      <HomeLayout allPostsData={allPostsData} allClassification={allClassification} />
+    </Suspense>
   )
 
 }
@@ -47,16 +49,15 @@ function HomeLayoutFallback({ allPostsData }) {
     </div>
   )
 }
-export const getStaticAllClassification = cache(async () => {
+export const getStaticAllClassification = cache(() => {
   const allClassification = getAllClassification()
 
   return allClassification;
-
 })
 
-export const getStaticSortedPostsData = cache(async () => {
-  const allPostsData = await getSortedPostsData();
-  return allPostsData;
+export const getStaticSortedPostsData = cache(() => {
+  const allPostsData = getSortedPostsData();
 
+  return allPostsData;
 })
 

@@ -6,14 +6,16 @@ import { LoadingImg } from '../../components/image/loading-img'
 
 import Link from 'next/link'
 import { useEffect, useRef } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 var sTop = 0
 var ticking = false
 
-export default function HomeLayout({ allPostsData, allClassification, searchParams }) {
-
-    const selectedClass = searchParams.class || null;
+export default function HomeLayout({ allPostsData, allClassification }) {
+    const searchParams = useSearchParams()
     const headRef = useRef()
+
+    const selectedClass = searchParams.get('class')
 
     if (selectedClass) {
         allPostsData = allPostsData.filter(post => post.classRoute === selectedClass);

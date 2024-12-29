@@ -6,7 +6,7 @@ import matter from 'gray-matter';
 const postsDirectory = path.join(process.cwd(), 'data', 'posts');
 const classification = getAllClassification();
 
-export async function getSortedPostsData() {
+export function getSortedPostsData() {
 
   let allPostsData = [];
   Object.keys(classification).forEach(className => {
@@ -31,8 +31,6 @@ export async function getSortedPostsData() {
       })
 
     })
-
-
 
   });
 
