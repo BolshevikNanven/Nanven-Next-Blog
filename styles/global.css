@@ -1,4 +1,4 @@
-.light-theme {
+.light-default-theme {
     --md-sys-color-primary: #3c691b;
     --md-sys-color-on-primary: #ffffff;
     --md-sys-color-primary-container: #accd90;
@@ -32,7 +32,7 @@
     --md-sys-color-inverse-primary: #a1d57a;
 }
 
-.dark-theme {
+.dark-default-theme {
     --md-sys-color-primary: #a1d57a;
     --md-sys-color-on-primary: #173800;
     --md-sys-color-primary-container: #255102;

@@ -1,4 +1,4 @@
-import { Suspense, cache } from 'react'
+import { cache, Suspense } from 'react'
 
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
@@ -8,22 +8,14 @@ import '@/styles/global.css';
 import '@/styles/sspai.css'
 
 import BaseLayout from '@/app/client-layout';
+import { ThemeProvider } from '@/components/theme/theme-provider';
 
-import { getSortedPostsData,getAllClassification } from '@/utils/posts';
+import { getSortedPostsData, getAllClassification } from '@/utils/posts';
 
 
 export const metadata = {
   title: 'Nanven Blog',
   description: '分享一切 , share anything',
-}
-
-function RootLayoutFallback() {
-  return (
-    <>
-      <div className='headerLayout'></div>
-      <div className='navigationLayout'></div>
-    </>
-  )
 }
 
 export default async function RootLayout({ children }) {
@@ -34,14 +26,16 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <div className='base'>
-          <Suspense fallback={<RootLayoutFallback />}>
-            <BaseLayout allClassification={allClassification} allPostsData={allPostsData} />
-          </Suspense>
-          <div className='main'>
-            {children}
+        <ThemeProvider>
+          <div className='base'>
+            <Suspense>
+              <BaseLayout allClassification={allClassification} allPostsData={allPostsData} />
+            </Suspense>
+            <div className='main'>
+              {children}
+            </div>
           </div>
-        </div>
+        </ThemeProvider>
       </body>
     </html>
   )

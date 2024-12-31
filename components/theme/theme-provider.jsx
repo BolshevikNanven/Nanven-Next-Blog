@@ -1,16 +1,38 @@
-import { useEffect } from "react"
+'use client'
 
-export default function ThemeProvider({ theme, children }) {
+import { createContext, useContext, useEffect, useState } from "react"
+
+import { argbFromHex, themeFromSourceColor, applyTheme } from "@material/material-color-utilities";
+import { getMissingColorString } from "@/utils/material";
+
+const ThemeContext = createContext()
+const defaultTheme = '#7B9168'
+
+export function useTheme() {
+    const { theme } = useContext(ThemeContext)
+
+    return theme
+}
+
+export function useDarkMode() {
+    const { darkMode } = useContext(ThemeContext)
+
+    return darkMode
+}
+
+export function ThemeProvider({ children }) {
+    const [theme, setTheme] = useState()
+    const [darkMode, setDarkMode] = useState(false)
 
     useEffect(() => {
-        let classList = [theme + '-theme'];
-        document.body.classList.forEach(className => {
-            if (!className.endsWith('-theme')) {
-                classList.push(className)
-            }
-        })
-        document.body.classList = classList
-    }, [theme])
+        const md = themeFromSourceColor(argbFromHex(theme || defaultTheme))
 
-    return children
+        applyTheme(md, { target: document.body, dark: darkMode })
+
+        document.body.style.cssText += getMissingColorString(md, darkMode)
+    }, [theme, darkMode])
+
+    return <ThemeContext.Provider value={{ theme: [theme, setTheme], darkMode: [darkMode, setDarkMode] }}>
+        {children}
+    </ThemeContext.Provider>
 }

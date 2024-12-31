@@ -12,7 +12,7 @@ export const metadata = {
   description: '分享一切 , share anything',
 }
 
-export default async function Home({ searchParams }) {
+export default async function Home() {
 
   const allPostsData = getStaticSortedPostsData();
   const allClassification = getStaticAllClassification();

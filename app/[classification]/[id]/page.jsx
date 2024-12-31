@@ -12,12 +12,13 @@ import { faShare, faHeart } from '@fortawesome/free-solid-svg-icons'
 import { Marked } from 'marked'
 import { markedHighlight } from 'marked-highlight'
 
-
 import { getAllPostIds, getPostData } from '@/utils/posts'
 import NavBar from './nav-bar'
+import HeadImg from './head-img'
+import { colorFromImageBuffer } from '@/utils/color'
 
 
-export async function generateMetadata({ params, searchParams }, parent) {
+export async function generateMetadata({ params }) {
   const { classification, id } = await params;
   const postData = getStaticPostData({ classification, id });
 
@@ -32,7 +33,6 @@ export default async function Article({ params }) {
     markedHighlight({
       langPrefix: 'hljs language-',
       highlight(code, lang) {
-        console.log(lang);
         const language = hljs.getLanguage(lang) ? lang : 'plaintext'
         return hljs.highlight(code, { language }).value
       },
@@ -40,6 +40,8 @@ export default async function Article({ params }) {
   )
 
   const postData = getStaticPostData(await params);
+  const color = await getStaticImageColor(postData.image)
+
 
   return <>
     <div className={style.mainBox}>
@@ -55,7 +57,7 @@ export default async function Article({ params }) {
             </div>
           </div>
           <div className={style.image}>
-            <img alt={postData.title} className='useDarkFilter' src={postData.image} />
+            <HeadImg title={postData.title} url={postData.image} color={color}/>
           </div>
         </div>
         <div className='articleBody'>
@@ -73,9 +75,14 @@ export async function generateStaticParams() {
 }
 
 export const getStaticPostData = cache((params) => {
-
   const postData = getPostData(params.classification, params.id);
 
   return postData
 })
 
+export const getStaticImageColor = cache(async (url) => {
+  const resp = await fetch(url)
+  const buffer = await resp.arrayBuffer()
+
+  return await colorFromImageBuffer(buffer)
+})
