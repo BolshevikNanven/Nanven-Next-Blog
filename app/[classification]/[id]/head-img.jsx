@@ -1,7 +1,6 @@
 'use client'
 
 import { useTheme } from "@/components/theme/theme-provider"
-import { Hct, sourceColorFromImage } from "@material/material-color-utilities"
 import { useEffect, useRef } from "react"
 
 export default function HeadImg({ title, url, color }) {

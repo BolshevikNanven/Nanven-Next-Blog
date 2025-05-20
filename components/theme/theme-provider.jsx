@@ -27,9 +27,7 @@ export function ThemeProvider({ children }) {
     useEffect(() => {
         const md = themeFromSourceColor(argbFromHex(theme || defaultTheme))
 
-        applyTheme(md, { target: document.body, dark: darkMode })
-
-        document.body.style.cssText += getMissingColorString(md, darkMode)
+        document.body.style.cssText = getMissingColorString(md, darkMode)
     }, [theme, darkMode])
 
     return <ThemeContext.Provider value={{ theme: [theme, setTheme], darkMode: [darkMode, setDarkMode] }}>
