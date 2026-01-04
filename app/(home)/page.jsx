@@ -2,10 +2,9 @@ import { Suspense, cache } from 'react'
 
 import { getSortedPostsData, getAllClassification } from '../../utils/posts';
 import HomeLayout from './client-layout';
-
+import style from '@/styles/home.module.css'
 
 import Link from 'next/link';
-
 
 export const metadata = {
   title: 'Nanven Blog',
@@ -26,20 +25,22 @@ export default async function Home() {
 }
 function HomeLayoutFallback({ allPostsData }) {
   return (
-    <div>
-      <h2>全部文章</h2>
-      <div>
+    <div className={style.homeBase}>
+      <div className={style.homeTitleContainer}>
+        <h2 className={style.homeTitle}>全部文章</h2>
+      </div>
+      <div className={style.homeContainer}>
         {allPostsData.map(({ id, classRoute, classification, title, description, image, date }) => (
-          <div key={id} >
-            <Link href={`/${classRoute}/${id}`}>
-              <div>
-                <div>
-                  <h2>{title}</h2>
-                  <span>{classification}</span>
+          <div key={id} className={style.acticleContainer}>
+            <Link className={style.acticle} href={`/${classRoute}/${id}`}>
+              <div className={style.acticleHeader}>
+                <div className={style.titleContainer}>
+                  <h2 className={style.title}>{title}</h2>
+                  <span className={style.classification}>{classification}</span>
                 </div>
-                <div>
-                  <div>{date}</div>
-                  <div>{description}</div>
+                <div className={style.descriptionContainer}>
+                  <div className={style.date}>{date}</div>
+                  <div className={style.description}>{description}</div>
                 </div>
               </div>
             </Link>

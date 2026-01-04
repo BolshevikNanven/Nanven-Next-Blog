@@ -72,7 +72,6 @@ export function getAllPostIds() {
 export function getPostData(className, id) {
   const fullPath = path.join(postsDirectory, className + '$' + classification[className], `${id}.md`);
 
-
   const fileContents = fs.readFileSync(fullPath, 'utf8');
 
   const matterResult = matter(fileContents);

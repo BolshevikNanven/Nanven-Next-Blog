@@ -1,0 +1,1 @@
+export const defaultTheme = '#7B9168'

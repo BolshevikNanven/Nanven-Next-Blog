@@ -15,7 +15,8 @@ import { markedHighlight } from 'marked-highlight'
 import { getAllPostIds, getPostData } from '@/utils/posts'
 import NavBar from './nav-bar'
 import HeadImg from './head-img'
-import { colorFromImageBuffer } from '@/utils/color'
+import { colorFromImageBuffer } from '@/utils/image'
+import { defaultTheme } from '@/components/theme'
 
 
 export async function generateMetadata({ params }) {
@@ -40,8 +41,7 @@ export default async function Article({ params }) {
   )
 
   const postData = getStaticPostData(await params);
-  const color = await getStaticImageColor(postData.image)
-
+  const imageData = await getStaticImageData(postData.image)
 
   return <>
     <div className={style.mainBox}>
@@ -57,7 +57,7 @@ export default async function Article({ params }) {
             </div>
           </div>
           <div className={style.image}>
-            <HeadImg title={postData.title} url={postData.image} color={color}/>
+            <HeadImg title={postData.title} url={postData.image} color={imageData.color} />
           </div>
         </div>
         <div className='articleBody'>
@@ -80,9 +80,20 @@ export const getStaticPostData = cache((params) => {
   return postData
 })
 
-export const getStaticImageColor = cache(async (url) => {
+export const getStaticImageData = cache(async (url) => {
   const resp = await fetch(url)
+
+  if (!resp.ok) {
+    return {
+      color: defaultTheme.substring(1)
+    }
+  }
+
   const buffer = await resp.arrayBuffer()
 
-  return await colorFromImageBuffer(buffer)
+  const color = await colorFromImageBuffer(buffer)
+
+  return {
+    color,
+  }
 })

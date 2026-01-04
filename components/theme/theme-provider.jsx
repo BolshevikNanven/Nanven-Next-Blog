@@ -2,11 +2,11 @@
 
 import { createContext, useContext, useEffect, useState } from "react"
 
-import { argbFromHex, themeFromSourceColor, applyTheme } from "@material/material-color-utilities";
+import { argbFromHex, themeFromSourceColor } from "@material/material-color-utilities";
 import { getMissingColorString } from "@/utils/material";
+import { defaultTheme } from ".";
 
 const ThemeContext = createContext()
-const defaultTheme = '#7B9168'
 
 export function useTheme() {
     const { theme } = useContext(ThemeContext)
@@ -30,7 +30,9 @@ export function ThemeProvider({ children }) {
         document.body.style.cssText = getMissingColorString(md, darkMode)
     }, [theme, darkMode])
 
-    return <ThemeContext.Provider value={{ theme: [theme, setTheme], darkMode: [darkMode, setDarkMode] }}>
-        {children}
-    </ThemeContext.Provider>
+    return (
+        <ThemeContext.Provider value={{ theme: [theme, setTheme], darkMode: [darkMode, setDarkMode] }}>
+            {children}
+        </ThemeContext.Provider>
+    )
 }
